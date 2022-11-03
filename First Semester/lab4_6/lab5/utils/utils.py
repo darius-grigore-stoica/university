@@ -1,17 +1,3 @@
-"""
-Temă: laborator 4 - 6
-Stoica Grigore Darius
-Grupa: 316/1 - 22.10.2022
-"""
-
-"""
-Cerință: gestiunea concurenților de la un concurs de programare.
-Programul înregistrează scorul obținut de fiecare concurent la 10 probe diferite,
-fiecare probă este notat cu un scor de la 1 la 10. Fiecare participant este
-identificat printr-un număr de concurs, scorul este ținut într-o listă unde
-concurentul 3 are scorul pe poziția 3 în listă .
-"""
-
 ##
 ##----------------------FUNCTIONALITATI
 ##
@@ -23,10 +9,14 @@ def AddNewParticipant():
     Adaugă scor pentru un nou participant (ultimul participant)
     :return: final_list cu un nou concurent adaugat
     """
-    participant = []
-    for i in range(0, 10):
+    participant, i = [], 0
+    while i < 10:
         elem = int(input(""))
-        participant.append(elem)
+        if elem > 10 and elem < 0:
+            print("Scorul trebuie să fie in intervalul [1, 10]")
+        else:
+            participant.append(elem)
+            i += 1
     return participant
 
 def InsertScoreForGivenParticipant(final_list, participant_index, score_index, inserted_score):
@@ -40,15 +30,8 @@ def InsertScoreForGivenParticipant(final_list, participant_index, score_index, i
     """
     if participant_index < len(final_list) and score_index < len(final_list[participant_index]):
         final_list[participant_index][score_index] = inserted_score
-    elif participant_index >= len(final_list):
-        final_list.append([0])
-        for i in range(0, score_index):
-            final_list[participant_index].append(0)
-        final_list[participant_index][score_index] = inserted_score
-    elif (score_index >= len(final_list[participant_index]) and participant_index < len(final_list)):
-        for i in range(0, score_index):
-            final_list[participant_index].append(0)
-        final_list[participant_index][score_index] = inserted_score
+    else:
+        return "<---Eroare--->"
     return final_list
 
 
@@ -64,6 +47,8 @@ def EraseScoreForGivenParticipant(final_list, participant_index, score_index):
     if participant_index < len(final_list):
         if score_index < len(final_list[participant_index]):
             final_list[participant_index][score_index] = 0
+    else:
+        return "<---Eroare--->"
     return final_list
 
 def EraseScoreForInterval(final_list, participant_start, participant_end):
@@ -74,8 +59,10 @@ def EraseScoreForInterval(final_list, participant_start, participant_end):
     :param participant_end: indicele de start al intervalului
     :return: final_list cu modificările din enunt
     """
-    if(participant_start < participant_end and participant_start > 0 and participant_end < len(final_list)):
+    if(participant_start <= participant_end and participant_start > 0 and participant_end < len(final_list)):
         del final_list[participant_start:participant_end + 1]
+    else:
+        return "<---Eroare--->"
     return final_list
 
 def SubstituteScore(final_list, participant_index, score_index, substitute_score):
@@ -90,6 +77,8 @@ def SubstituteScore(final_list, participant_index, score_index, substitute_score
     if participant_index < len(final_list):
         if score_index < len(final_list[participant_index]):
             final_list[participant_index][score_index] = substitute_score
+    else:
+        return "<---Eroare--->"
     return final_list
 
 
@@ -104,7 +93,7 @@ def getAverageScore(final_list, participant_index):
     sum = 0
     for i in range(0, len(final_list[participant_index])):
         sum += final_list[participant_index][i]
-    if len(final_list[participant_index]) > 0:
+    if len(final_list[participant_index]) > 0 and sum:
         return int(sum / len(final_list[participant_index]))
     return 0
 
@@ -126,8 +115,8 @@ def WriteLowerScoreParticipant(final_list, given_score):
     :param given_score: scorul dat din enunt
     :return: tipareste pe ecran numarul de ordine a participantilor ce respecta conditia din enunt
     """
-    if (given_score > 0 and given_score <= 10):
-        return 0
+    if (given_score <= 1 and given_score > 10):
+        return "<---Eroare--->"
     scores = getListOfScores(final_list)
     for i in range(0, len(scores)):
         if scores[i] < given_score:
@@ -158,8 +147,8 @@ def WriteGivenScoreSorted(final_list, given_score):
     :param given_score: scorul dat din enunt
     :return: tipareste pe ecran numarul de ordine a participantilor ordonati crescator dupa scor, care respecta conditia din enunt
     """
-    if (given_score > 0 and given_score <= 10):
-        return 0
+    if (given_score <= 1 and given_score > 10):
+        return "<---Eroare--->"
     score = getListOfScores(final_list)
     for i in range(0, len(score)):
         if score[i] < given_score:
@@ -171,16 +160,20 @@ def WriteGivenScoreSorted(final_list, given_score):
 def WriteAvaregeScoreForInterval(final_list, participant_start, participant_end):
     """
     Calculează media scorurilor pentru un interval dat
-    :param final_list:
+    :param final_list: lista ce contine scorurile obtinute de fiecare concurent
     :param participant_start:
     :param participant_end:
     :return:
     """
     if participant_end < participant_start:
-        return 0
+        return "<---Eroare--->"
     scores = getListOfScores(final_list)
+    sum = 0
     for i in range(participant_start, participant_end + 1):
-        print(scores[i])
+        sum += scores[i]
+    if sum and participant_end - participant_start:
+        return float(sum / (participant_end - participant_start + 1))
+    return 0
 
 def getMinimScoreForInterval(final_list, participant_start, participant_end):
     """
@@ -191,7 +184,7 @@ def getMinimScoreForInterval(final_list, participant_start, participant_end):
     :return:
     """
     if participant_end < participant_start:
-        return 0
+        return "<---Eroare--->"
     min, i = 11, participant_start
     score = getListOfScores(final_list)
     while i < participant_end + 1:
@@ -204,15 +197,46 @@ def getMinimScoreForInterval(final_list, participant_start, participant_end):
 def WriteParticipantMultipleOf10(final_list, participant_start, participant_end):
     """
     Tipărește participanții dintr-un interval dat care au scorul multiplu de 10.
-    :param final_list:
+    :param final_list:lista ce contine scorurile obtinute de fiecare concurent
     :param participant_start:
     :param participant_end:
     :return:
     """
     if participant_end < participant_start:
-        return 0
+        return "<---Eroare--->"
     scores, i = getListOfScores(final_list), participant_start
     while i < participant_end + 1:
         if int(scores[i] % 10) == 0:
             print(i)
         i += 1
+
+
+#5. Filtrare.
+def FilterMultipleOfGivenNumber(final_list, given_number):
+    """
+    Filtrare participanți care au scorul multiplu unui număr dat.
+    :param final_list:lista ce contine scorurile obtinute de fiecare concurent
+    :param given_number: un numar dat, cu semnificatia din enunt
+    :return:
+    """
+    scores = getListOfScores(final_list)
+    final_list_new = []
+    for i in range(0, len(scores)):
+        if (scores[i] > 0 and int(scores[i] % given_number) != 0):
+            final_list_new.append(final_list[i])
+    return final_list_new
+
+
+def FilterParticipantWithLowerScore(final_list, given_score):
+    """
+    Filtrare participanți care au scorul mai mic decât un scor dat.
+    :param final_list: lista ce contine scorurile obtinute de fiecare concurent
+    :param given_score: scorul dat din enunt
+    :return: o listă ce contine scorurile care nu sunt mai mici decat scorul dat
+    """
+    scores = getListOfScores(final_list)
+    final_list_new = []
+    for i in range(0, len(scores)):
+        if (scores[i] > 0 and scores[i] < given_score):
+            final_list_new.append(final_list[i])
+    return final_list_new

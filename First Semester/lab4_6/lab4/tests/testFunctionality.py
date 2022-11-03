@@ -23,6 +23,7 @@ def Test4():
 def Test5():
     assert getMinimScoreForInterval([[], [1, 2, 3], [1, 2, 5], [1, 5, 6], [1, 2]], 1, 2) == 2
 
+
 def AllTests():
     Test1()
     Test2()
@@ -30,4 +31,4 @@ def AllTests():
     Test4()
     Test5()
 
-AllTests()
+#AllTests()
