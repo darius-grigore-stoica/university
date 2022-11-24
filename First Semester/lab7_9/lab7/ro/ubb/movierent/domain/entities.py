@@ -1,6 +1,5 @@
-"""
-Aici vom definii clasele de care avem nevoie pentru realizarea proiectului
-"""
+
+#Aici vom definii clasele de care avem nevoie pentru realizarea proiectului
 
 
 class Movies:
@@ -38,7 +37,7 @@ class Movies:
 
     #Suprascriem functia str
     def __str__(self):
-        return "Film: " + str(self.__id) + " " + str(self.__title) + "\n" + str(self.__description) + "\n" + str(self.__genre) + "\n"
+        return "Film: \n" + str(self.__id) + "\n" + str(self.__title) + "\n" + str(self.__description) + "\n" + str(self.__genre) + "\n"
 
 class Clients:
     def __init__(self, id, name, cnp):
