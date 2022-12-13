@@ -104,6 +104,15 @@ class Console:
         except ValueError as v:
             print(v)
 
+    def sortClientsByNumberOfMovies(self):
+        self.__clientService.sortClientsByNumberOfMovies()
+
+    def getMostWantedMovies(self):
+        self.__movieService.getMostWantedMovies()
+
+    def primary30Percentage(self):
+        self.__clientService.primary30Percentage()
+
     def printMenu(self):
         print("1. Adauga film")
         print("2. Modifica film")
@@ -115,6 +124,9 @@ class Console:
         print("8. Afiseaza toti clientii")
         print("9. Inchiriere film")
         print("10. Returnare film")
+        print("11. Ordonarea clietilor dupa numarul de filme inchiriate")
+        print("12. Afiseaza cele mai inchiriate filme")
+        print("13. Afiseaza primi 30% clienti cu cele mai multe filme")
         print("x. Iesire")
 
     def Menu(self):
@@ -145,6 +157,12 @@ class Console:
                 self.rentMovie()
             elif optiune == "10":
                 self.returnMovie()
+            elif optiune == "11":
+                self.sortClientsByNumberOfMovies()
+            elif optiune == "12":
+                self.getMostWantedMovies()
+            elif optiune == "13":
+                self.primary30Percentage()
             elif optiune == "x":
                 break
             else:

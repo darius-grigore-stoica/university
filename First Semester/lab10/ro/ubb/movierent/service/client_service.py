@@ -72,3 +72,9 @@ class ClientService:
             self.__client_repository.returnMovie(client, movie, self.__movie_repository)
         except ValueError as v:
             print(v)
+
+    def sortClientsByNumberOfMovies(self):
+        self.__client_repository.sortClientsByNumberOfMovies()
+
+    def primary30Percentage(self):
+        self.__client_repository.primary30Percentage()

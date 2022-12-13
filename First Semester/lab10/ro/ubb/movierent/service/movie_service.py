@@ -41,3 +41,6 @@ class MovieService:
         :return:
         """
         self.__movie_repository.delete(id)
+
+    def getMostWantedMovies(self):
+        self.__movie_repository.getMostWantedMovies()

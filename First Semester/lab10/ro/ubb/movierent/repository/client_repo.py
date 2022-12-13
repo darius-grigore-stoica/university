@@ -1,3 +1,5 @@
+import math
+
 from ro.ubb.movierent.domain.client_class import *
 from ro.ubb.movierent.domain.movies_class import Movie
 from ro.ubb.movierent.repository.movie_repo import MovieRepository
@@ -137,3 +139,27 @@ class ClientRepository:
                 raise ValueError("Nu exista filmul")
         except ValueError as v:
             print(v)
+
+    def sortClientsByNumberOfMovies(self):
+        # get the lenghts of rented_movie lists of every client
+        numberOfMovies = [0] * len(self.__all_clients)
+        for index in range(0, len(self.__all_clients)):
+            numberOfMovies[index] = len(self.__all_clients[index].get_rented_movies())
+        #sort the clients base by number of movies
+        for index in range(0, len((self.__all_clients))):
+            for index2 in range(index, len(self.__all_clients)):
+                if numberOfMovies[index] < numberOfMovies[index2]:
+                    aux = numberOfMovies[index]
+                    numberOfMovies[index] = numberOfMovies[index2]
+                    numberOfMovies[index2] = aux
+                    aux2 = self.__all_clients[index]
+                    self.__all_clients[index] = self.__all_clients[index2]
+                    self.__all_clients[index2] = aux2
+        for index in range(0, len((self.__all_clients))):
+                self.__all_clients[index].__str__()
+    def primary30Percentage(self):
+        print("Lista ordonată a clientilor după numărul de filme: ")
+        self.sortClientsByNumberOfMovies()
+        print("Primi 30% din aceasta lista sunt: ")
+        for index in range(0, math.ceil((30 * len(self.__all_clients)) / 100)):
+            self.__all_clients[index].__str__()
