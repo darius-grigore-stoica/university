@@ -1,18 +1,19 @@
-from ro.ubb.movierent.domain.client_class import *
+import math
 
-client = Client("1", "Andrei", "5030", [])
+from ro.ubb.movierent.domain.client_class import *
+from ro.ubb.movierent.domain.movies_class import Movie
+from ro.ubb.movierent.repository.movie_repo import MovieRepository
+
+client = Client("1", "Andrei", "5030", ["Once Upon A Time in Hollywood", "La la land"])
+client1 = Client("2", "Andreea", "2030", ["La la land"])
+client2 = Client("3", "Popescu", "5040", ["Avengers: Infinity Stone"])
 
 class ClientRepository:
     def __init__(self):
         self.__all_clients = []
         self.__all_clients.append(client)
-
-    def findAll(self):
-        """
-        Gaseste toate elementele de tip Movie si returneaza o lista cu acestea
-        :return: o lista cu toate elementele
-        """
-        return list(self.__all_clients)
+        self.__all_clients.append(client1)
+        self.__all_clients.append(client2)
 
     def add(self, client: Client):
         """
@@ -24,8 +25,8 @@ class ClientRepository:
             if self.__findByName__(client.get_name()) is None:
                 if self.__findById__(client.get_id()) is None:
                     self.__all_clients.append(client)
-            else:
-                raise ValueError("Exista deja un asemenea client")
+                else:
+                    raise ValueError("Exista deja un client cu acest id")
         except ValueError as v:
             print(v)
 
@@ -53,7 +54,8 @@ class ClientRepository:
         """
         try:
             if self.__findById__(client_id) is not None:
-                self.__all_clients.insert(int(client_id) - 1, new_client)#adaugam in lista pe pozitia data ca parametru
+                self.__all_clients.pop(int(client_id) - 1)
+                self.__all_clients.insert(int(client_id), new_client)#adaugam in lista pe pozitia data ca parametru
                 #elementul nou, modificat
             else:
                 raise ValueError("Nu exista id-ul adaugat in lista")
@@ -81,3 +83,83 @@ class ClientRepository:
             if self.__all_clients[i].get_name() == name:
                 return self.__all_clients[i].get_name()
         return None
+
+    def findAll(self):
+        """
+        Gaseste toate elementele de tip Movie si returneaza o lista cu acestea
+        :return: o lista cu toate elementele
+        """
+        return list(self.__all_clients)
+
+    def rentMovie(self, client, movie, all_movies: MovieRepository):
+        try:
+            if all_movies.findById(movie.get_id()) is not None:
+                # select client's rented list
+                rented_list = client.get_rented_movies()
+                #modify client's movies rented list
+                rented_list.append(movie.get_title())
+                #increase the number of times that movie what rented
+                new_movie = Movie(movie.get_id(), movie.get_title(), movie.get_description(), movie.get_genre(), int(movie.get_rentedTimes()) + 1)
+                all_movies.update(movie.get_id(), new_movie)
+                client.set_rented(rented_list)
+                #add the new-formed client to the client list
+                client_id = client.get_id
+                if self.__findById__(client_id) is not None:
+                    self.__all_clients.pop(int(client_id) - 1)
+                    self.__all_clients.insert(int(client_id), client)  # adaugam in lista pe pozitia data ca parametru
+                    # elementul nou, modificat
+            else:
+                raise ValueError("Nu exista filmul")
+        except ValueError as v:
+            print(v)
+
+    def returnMovie(self, client, movie, all_movies: MovieRepository):
+        try:
+            if all_movies.findById(client.get_id()) is not None:
+                # select client's rented list
+                rented_list = client.get_rented_movies()
+                #modify client's movies rented list
+                for index in range(0, len(rented_list)):
+                    if rented_list[index] == movie.get_title():
+                        rented_list.pop(index)
+                #decrease the number of times that movie what rented
+                if (int(movie.get_rentedTimes())) > 0:
+                    new_movie = Movie(movie.get_id(), movie.get_title(), movie.get_description(), movie.get_genre(), int(movie.get_rentedTimes()) - 1)
+                else:
+                    new_movie = Movie(movie.get_id(), movie.get_title(), movie.get_description(), movie.get_genre(), 0)
+                all_movies.update(movie.get_id(), new_movie)
+                client.set_rented(rented_list)
+                #add the new-formed client to the client list
+                client_id = client.get_id
+                if self.__findById__(client_id) is not None:
+                    self.__all_clients.pop(int(client_id) - 1)
+                    self.__all_clients.insert(int(client_id), client)  # adaugam in lista pe pozitia data ca parametru
+                    # elementul nou, modificat
+            else:
+                raise ValueError("Nu exista filmul")
+        except ValueError as v:
+            print(v)
+
+    def sortClientsByNumberOfMovies(self):
+        # get the lenghts of rented_movie lists of every client
+        numberOfMovies = [0] * len(self.__all_clients)
+        for index in range(0, len(self.__all_clients)):
+            numberOfMovies[index] = len(self.__all_clients[index].get_rented_movies())
+        #sort the clients base by number of movies
+        for index in range(0, len((self.__all_clients))):
+            for index2 in range(index, len(self.__all_clients)):
+                if numberOfMovies[index] < numberOfMovies[index2]:
+                    aux = numberOfMovies[index]
+                    numberOfMovies[index] = numberOfMovies[index2]
+                    numberOfMovies[index2] = aux
+                    aux2 = self.__all_clients[index]
+                    self.__all_clients[index] = self.__all_clients[index2]
+                    self.__all_clients[index2] = aux2
+        for index in range(0, len((self.__all_clients))):
+                self.__all_clients[index].__str__()
+    def primary30Percentage(self):
+        print("Lista ordonată a clientilor după numărul de filme: ")
+        self.sortClientsByNumberOfMovies()
+        print("Primi 30% din aceasta lista sunt: ")
+        for index in range(0, math.ceil((30 * len(self.__all_clients)) / 100)):
+            self.__all_clients[index].__str__()

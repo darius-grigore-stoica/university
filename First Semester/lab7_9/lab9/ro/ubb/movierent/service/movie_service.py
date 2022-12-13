@@ -9,7 +9,7 @@ class MovieService:
     def find_allMovie(self):
         return self.__movie_repository.findAll()
 
-    def addMovie(self, id, title, description, genre):
+    def addMovie(self, id, title, description, genre, rented_times):
         """
         Adaugarea unui element nou
         :param id:
@@ -18,10 +18,10 @@ class MovieService:
         :param genre:
         :return:
         """
-        movie = Movie(id, title, description, genre)
+        movie = Movie(id, title, description, genre, rented_times)
         self.__movie_repository.add(movie)
 
-    def updateMovie(self, movie_id, id, title, description, genre):
+    def updateMovie(self, movie_id, title, description, genre, rented_times):
         """
         Modificare unui element
         :param movie_id:
@@ -31,7 +31,7 @@ class MovieService:
         :param genre:
         :return:
         """
-        new_movie = Movie(id, title, description, genre)
+        new_movie = Movie(movie_id, title, description, genre, rented_times)
         self.__movie_repository.update(movie_id, new_movie)
 
     def deleteMovie(self, id):
@@ -41,3 +41,6 @@ class MovieService:
         :return:
         """
         self.__movie_repository.delete(id)
+
+    def getMostWantedMovies(self):
+        self.__movie_repository.getMostWantedMovies()

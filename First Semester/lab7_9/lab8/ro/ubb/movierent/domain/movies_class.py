@@ -1,9 +1,10 @@
 class Movie:
-    def __init__(self, id, title, description, genre):
+    def __init__(self, id, title, description, genre, rented_times):
         self.__id = id
         self.__title = title
         self.__description = description
         self.__genre = genre
+        self.__rented_times = rented_times
 
     #Definim GETTERI
     def get_id(self):
@@ -18,6 +19,9 @@ class Movie:
     def get_genre(self):
         return self.__genre
 
+    def get_rented_times(self):
+        return self.__rented_times
+
     #Definim SETTERI
     def set_id(self, id):
         self.__id = id
@@ -30,6 +34,9 @@ class Movie:
 
     def set_genre(self, genre):
         self.__genre = genre
+
+    def set_rented_times(self, rented_times):
+        self.__rented_times = rented_times
 
     #Suprascriem functia str
     def __str__(self):

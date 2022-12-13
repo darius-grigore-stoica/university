@@ -7,13 +7,13 @@ class MovieRepository:
     def add(self, movie: Movie):
         if self.__findByTitle__(movie.get_title()) is None:
             if self.__findById__(movie.get_id()) is None:
-                self.__all_movies.append(movie)
+                self.__all_movies.insert(int(movie.get_id()), movie)
         else:
             raise ValueError("Exista deja un asemenea film")
 
     def detele(self, id):
         if self.__findById__(id) is not None:
-            self.__all_movies.pop(id)
+            self.__all_movies.pop(int(id))
         else:
             raise ValueError("Nu exista id-ul adaugat in lista")
 
@@ -39,19 +39,28 @@ class MovieRepository:
         return list(self.__all_movies)
 
     def updateId(self, movie, new_id):
-        if self.__findById__(movie.get_id()) is not None:
-            movie.set_id(new_id)
-        else:
-            raise ValueError("Nu exista id-ul adaugat in lista")
+        try:
+            if self.__findById__(movie.get_id()) is not None:
+                movie.set_id(new_id)
+            else:
+                raise ValueError("Nu exista id-ul adaugat in lista")
+        except ValueError as v:
+            print(v)
 
     def updateTitle(self, movie, new_title):
-        if self.__findByTitle__(movie.get_title()) is not None:
-            movie.set_title(new_title)
-        else:
-            raise ValueError("Nu exista un film cu titlul introdus")
+        try:
+            if self.__findByTitle__(movie.get_title()) is not None:
+                movie.set_title(new_title)
+            else:
+                raise ValueError("Nu exista un film cu titlul introdus")
+        except ValueError as v:
+            print(v)
 
     def updateGenre(self, movie, new_genre):
-        if self.__findByGenre__(movie.get_genre()) is not None:
-            movie.set_genre(new_genre)
-        else:
-            raise ValueError("Nu exista un film cu genul introdus")
+        try:
+            if self.__findByGenre__(movie.get_genre()) is not None:
+                movie.set_genre(new_genre)
+            else:
+                raise ValueError("Nu exista un film cu genul introdus")
+        except ValueError as v:
+            print(v)

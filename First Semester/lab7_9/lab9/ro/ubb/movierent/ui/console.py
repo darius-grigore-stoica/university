@@ -1,6 +1,5 @@
 from ro.ubb.movierent.service.movie_service import MovieService
 from ro.ubb.movierent.service.client_service import ClientService
-from ro.ubb.movierent.domain.client_class import Client
 
 
 class Console:
@@ -18,7 +17,7 @@ class Console:
             description = input("")
             print("Genul filmul pe care doresti să il adaugi: ")
             genre = input("")
-            self.__movieService.addMovie(id, title, description, genre)
+            self.__movieService.addMovie(id, title, description, genre, 0)
         except ValueError as v:
             print(v)
 
@@ -26,15 +25,15 @@ class Console:
         try:
             print("Id-ul filmul ce doresti a fi modificat: ")
             id = input("")
-            print("Noul id: ")
-            new_id = input("")
             print("Noul titlu: ")
             new_title = input("")
             print("Noua descriere: ")
             new_description = input("")
             print("Noul gen: ")
             new_genre = input("")
-            self.__movieService.updateMovie(id, new_id, new_title, new_description, new_genre)
+            print("Noul numar de inchirieri: ")
+            rented_movies = input("")
+            self.__movieService.updateMovie(id, new_title, new_description, new_genre, rented_movies)
         except ValueError as v:
             print(v)
 
@@ -86,25 +85,33 @@ class Console:
             print(v)
 
     def rentMovie(self):
-        print("Id-ul clientului ce doreste a inchiria un film: ")
-        id = input("")
-        all_clients = self.__clientService.find_allClient()#preluam lista de clienti
         try:
-            for index in range(0, len(all_clients)):
-                if all_clients[index].get_id == id:#daca in lista de clienti exista un client cu id-ul primit de la utilizator
-                    name = all_clients[index].get_name
-                    cnp = all_clients[index].get_cnp
-                    rented_movie = all_clients[index].get_rented_movies
-                    client = Client(id, name, cnp, rented_movie)#crez un client nou cu acelasi nume, cnp si lista de filme, pe care il oferi ca parametru pe linia 89
-                    print("Numele filmului dorit de catre client: ")
-                    movie_title = input("")#preluam de la utilizator numele filmului
-                    self.__clientService.rentAMovie(client, movie_title, self.__movieService.find_allMovie())#apelam functia din client_service
-                    break
-                else:
-                    raise ValueError("Nu exista un client cu acest id")
+            print("Id-ul clientului ce doreste a inchiria un film: ")
+            client_id = input("")
+            print("Id-ul filmului inchiriat: ")
+            movie_id = input("")
+            self.__clientService.rentMovie(client_id, movie_id)
         except ValueError as v:
             print(v)
 
+    def returnMovie(self):
+        try:
+            print("Id-ul clientului ce doreste a returna un film: ")
+            client_id = input("")
+            print("Id-ul filmului pentru returnare: ")
+            movie_id = input("")
+            self.__clientService.returnMovie(client_id, movie_id)
+        except ValueError as v:
+            print(v)
+
+    def sortClientsByNumberOfMovies(self):
+        self.__clientService.sortClientsByNumberOfMovies()
+
+    def getMostWantedMovies(self):
+        self.__movieService.getMostWantedMovies()
+
+    def primary30Percentage(self):
+        self.__clientService.primary30Percentage()
 
     def printMenu(self):
         print("1. Adauga film")
@@ -117,6 +124,9 @@ class Console:
         print("8. Afiseaza toti clientii")
         print("9. Inchiriere film")
         print("10. Returnare film")
+        print("11. Ordonarea clietilor dupa numarul de filme inchiriate")
+        print("12. Afiseaza cele mai inchiriate filme")
+        print("13. Afiseaza primi 30% clienti cu cele mai multe filme")
         print("x. Iesire")
 
     def Menu(self):
@@ -145,6 +155,14 @@ class Console:
                     clients[i].__str__()
             elif optiune == "9":
                 self.rentMovie()
+            elif optiune == "10":
+                self.returnMovie()
+            elif optiune == "11":
+                self.sortClientsByNumberOfMovies()
+            elif optiune == "12":
+                self.getMostWantedMovies()
+            elif optiune == "13":
+                self.primary30Percentage()
             elif optiune == "x":
                 break
             else:
