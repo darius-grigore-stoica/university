@@ -34,7 +34,6 @@ class Client:
     #Suprascriem functia str
     def __str__(self):
         print("Id: " + str(self.__id) + "\n" + "Nume: " + str(self.__name) + "\n" + "CNP: " + str(self.__cnp))
-        #rented_movies = self.__rented_movies.get_rented_movies()
         print("Lista de filme inchiriate:")
         for index in range(0, len(self.__rented_movies)):
             print(" * " + self.__rented_movies[index])
