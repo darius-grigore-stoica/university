@@ -66,7 +66,7 @@ class ClientService:
                     movie_title = movies[index].title
                     movie_description = movies[index].description
                     movie_genre = movies[index].genre
-                    movie_rentedTimes = movies[index].rentedTimes
+                    movie_rentedTimes = movies[index].rented_times
                     movie = Movie(movie_id, movie_title, movie_description, movie_genre, movie_rentedTimes)
                     break
             self.__client_repository.returnMovie(client, movie, self.__movie_repository)

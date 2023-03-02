@@ -118,9 +118,9 @@ class ClientRepository:
                         rented_list.pop(index)
                 #decrease the number of times that movie what rented
                 if (int(movie.rented_times)) > 0:
-                    new_movie = Movie(movie.id, movie.title, movie.description, movie.genre(), int(movie.rented_times) - 1)
+                    new_movie = Movie(movie.id, movie.title, movie.description, movie.genre, int(movie.rented_times) - 1)
                 else:
-                    new_movie = Movie(movie.id, movie.title, movie.description, movie.genre(), 0)
+                    new_movie = Movie(movie.id, movie.title, movie.description, movie.genre, 0)
                 all_movies.update(movie.id, new_movie)
                 client.set_rented(rented_list)
                 #add the new-formed client to the client list
