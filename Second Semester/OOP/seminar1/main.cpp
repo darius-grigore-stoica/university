@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+
 void readMatrix(int nrLin, int nrCol, int mat[50][50]){
     int i;
     int j;

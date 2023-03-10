@@ -9,3 +9,5 @@
 
 void readVector();
 void printVector();
+void getSequence();
+void getSign();
