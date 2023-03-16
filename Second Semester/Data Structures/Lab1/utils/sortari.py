@@ -19,7 +19,7 @@ def bubbleSort(arr, operator: str):
             for j in range(0, n - i - 1):
                 if getattr(arr[j], operatori[0]) > getattr(arr[j + 1], operatori[0]):
                     swapped = True
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                    arr[j], arr[j + 1] = arr[j + 1], arr[j]
         if not swapped:
             return
     if (len(operatori) == 2):
@@ -64,17 +64,27 @@ def partition(array, low, high, operator: list[str]):
     :return:
     """
     i = low - 1
-    for j in range(low, high - 2):
+    for j in range(low, high):
         if(len(operator) == 1):
             if getattr(array[j], operator[0]) < getattr(array[high], operator[0]):
                 i = i + 1
                 (array[i], array[j]) = (array[j], array[i])
         if(len(operator) == 2):
+            if getattr(array[j], operator[0]) < getattr(array[high], operator[0]):
+                i = i + 1
+                (array[i], array[j]) = (array[j], array[i])
             if getattr(array[j], operator[0]) == getattr(array[high], operator[0]):
                 if getattr(array[j], operator[1]) < getattr(array[high], operator[1]):
                     i = i + 1
                     (array[i], array[j]) = (array[j], array[i])
         if(len(operator) == 3):
+            if getattr(array[j], operator[0]) < getattr(array[high], operator[0]):
+                i = i + 1
+                (array[i], array[j]) = (array[j], array[i])
+            if getattr(array[j], operator[0]) == getattr(array[high], operator[0]):
+                if getattr(array[j], operator[1]) < getattr(array[high], operator[1]):
+                    i = i + 1
+                    (array[i], array[j]) = (array[j], array[i])
             if getattr(array[j], operator[1]) == getattr(array[high], operator[1]) and operator[2] != "":
                 if getattr(array[j], operator[2]) < getattr(array[high], operator[2]):
                     i = i + 1
@@ -99,4 +109,3 @@ def quickSort(array, low, high, operator: str):
         pi = partition(array, low, high, operatori)
         quickSort(array, low, pi - 1, operator)
         quickSort(array, pi + 1, high, operator)
-

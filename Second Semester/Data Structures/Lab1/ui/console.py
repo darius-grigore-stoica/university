@@ -21,6 +21,7 @@ class Console:
 
     def sortCarList(self, criteriu):
         quickSort(self.cars, 1, len(self.cars) - 1, criteriu)
+        self.printCarList()
 
     def findElemInList(self, atribut, valoare):
         print(findByToken(self.cars, atribut, valoare))
