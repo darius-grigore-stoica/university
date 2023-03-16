@@ -17,6 +17,8 @@ void printMenu(){
 }
 
 void Console(){
+    int n = 6;
+    int* v = new int[50];//dinamic allocation
     int option;
     int run = true;
     while(run) {
@@ -24,15 +26,31 @@ void Console(){
         cout << "Introdu optiunea:";
         cin >> option;
         if (option == 1)
-            readVector();
+            readVector(n, v);
         else if (option == 2)
-            printVector();
+            printVector(n, v);
         else if (option == 0)
             run = false;
-        else if (option == 3)
-            getSequence();
-        else if (option == 4)
-            getSign();
+        else if (option == 3){
+            int left = 0, right = 0;
+            cout << "Citeste a si b:\n";
+            int a, b;
+            cin >> a >> b;
+            getInterval(a, b, n, v, left, right);
+            int p;
+            for(p = left; p < right; p++)
+                cout << v[p] << " ";
+            cout << "\n";
+        }
+        else if (option == 4) {
+            int left = 0, right = 0;
+            getSign(n, v, left, right);
+            int p;
+            for(p = left; p <= right; p++)
+                cout << v[p] << " ";
+            cout << "\n";
+        }
         else cout << "Comanda gresita! Incearca din nou.\n";
     }
+    delete[] v;
 }

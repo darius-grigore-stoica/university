@@ -1,10 +1,8 @@
 from dataclasses import dataclass
 
-
 @dataclass
 class Car:
     def __init__(self, brand, model, token, priceBuy, priceSell):
-
         self.brand = brand
         self.model = model
         self.token = token

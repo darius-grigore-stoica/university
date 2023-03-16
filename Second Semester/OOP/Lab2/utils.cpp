@@ -4,10 +4,7 @@
 #include <iostream>
 using namespace std;
 
-int n = 7;
-int v[] = {0, 1, 3, 2, 10, 5, 1};
-
-void readVector(){
+void readVector(int& n, int v[50]){
     cout << "n =";
     cin >> n;
     int i;
@@ -16,17 +13,18 @@ void readVector(){
         cin >> v[i];
 }
 
-void printVector(){
+void printVector(int& n, int v[50]){
     int i;
     for(i = 0; i < n; i++)
         cout << v[i] << " ";
     cout << "\n";
 }
 
-void getInterval(int a, int b){
+void getInterval(int a, int b, int& n, int v[50], int& left, int& right){
     int i, j;
-    pair<int, int> pozitii;
     int max;
+    left = 0;
+    right = 0;
 
     i = 0; max = 0;
     while (i < n && (v[i] < a || v[i] > b))
@@ -35,28 +33,16 @@ void getInterval(int a, int b){
         j = i + 1;
         while (j < n && (v[j] >= a && v[j] <= b))
             j++;
-        if(j - i > max) {
-            pozitii.first = i;
-            pozitii.second = j;
+        if(j - i > max && j < n - 1) {
+            left = i;
+            right = j;
             max = j - i;
         }
-        i++;
+        i = j + 1;
     }
-
-    int p;
-    for(p = pozitii.first; p < pozitii.second; p++)
-        cout << v[p] << " ";
-    cout << "\n";
 }
 
-void getSequence(){
-    int a, b;
-    cout << "Ofera o valoare pentru capatul din stanga si cel din dreapta al intervalului:";
-    cin >> a >> b;
-    getInterval(a, b);
-}
-
-bool diffSign(int y){
+bool diffSign(int y, int v[50]){
     if (v[y - 1] - v[y] > 0 && v[y] - v[y + 1] < 0)
         return true;
     if (v[y - 1] - v[y] < 0 && v[y] - v[y + 1] > 0)
@@ -64,32 +50,26 @@ bool diffSign(int y){
     return false;
 }
 
-void getSign(){
+void getSign(int& n, int v[50], int& left, int& right ){
     int i, j;
-    pair<int, int> pozitii;
     int max;
+    left = 0;
+    right = 0;
 
     i = 0;
-    while(!diffSign(i))
+    while(!diffSign(i, v))
         i++;
 
     max = 0;
-    pozitii.first = 0;
-    pozitii.second = -1;
     while(i < n - 1){
         j = i + 1;
-        while(diffSign(j))
+        while(diffSign(j, v))
             j++;
-        if(j - i > max){
+        if(j - i > max && j < n - 1){
             max = j - i;
-            pozitii.first = i - 1;
-            pozitii.second = j;
+            left = i;
+            right = j - 1;
         }
         i = j + 1;
     }
-
-    int p;
-    for(p = pozitii.first; p <= pozitii.second; p++)
-        cout << v[p] << " ";
-    cout << "\n";
 }

@@ -1,5 +1,5 @@
-from ui.read import readFile
+from ui.console import Console
 
 if __name__ == '__main__':
-    cars = readFile("fisier.in")
-    print(cars[2].__str__())
+    consola = Console()
+    consola.Menu()

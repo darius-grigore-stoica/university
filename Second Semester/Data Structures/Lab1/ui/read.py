@@ -3,8 +3,8 @@ from domain.car_class import Car
 def readFile(filename):
     """
     Citirea din fisier a datelor
-    :param filename:
-    :return:
+    :param filename: un string care contine calea catre fisierul din care se citesc datele
+    :return: cars - o lista de elemente-obiect de tip Car
     """
     cars = []
     with open(filename, "r") as f:
@@ -15,6 +15,5 @@ def readFile(filename):
             car_token = line.split()[2]
             car_priceBuy = line.split()[3]
             car_priceSell = line.split()[4]
-            new_car = cars.append(Car(car_brand, car_model, car_token, car_priceBuy, car_priceSell))
-            cars.append(new_car)
+            cars.append(Car(car_brand, car_model, car_token, car_priceBuy, car_priceSell))
     return cars

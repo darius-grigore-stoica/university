@@ -67,6 +67,12 @@ build CMakeFiles/Lab2.dir/utils.cpp.obj: CXX_COMPILER__Lab2_Debug C$:/Users/Dari
   OBJECT_DIR = CMakeFiles\Lab2.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab2.dir
 
+build CMakeFiles/Lab2.dir/test.cpp.obj: CXX_COMPILER__Lab2_Debug C$:/Users/Darius$ Stoica/Documents/GitHub/university/Second$ Semester/OOP/Lab2/test.cpp || cmake_object_order_depends_target_Lab2
+  DEP_FILE = CMakeFiles\Lab2.dir\test.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\Lab2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Lab2
@@ -75,7 +81,7 @@ build CMakeFiles/Lab2.dir/utils.cpp.obj: CXX_COMPILER__Lab2_Debug C$:/Users/Dari
 #############################################
 # Link the executable Lab2.exe
 
-build Lab2.exe: CXX_EXECUTABLE_LINKER__Lab2_Debug CMakeFiles/Lab2.dir/main.cpp.obj CMakeFiles/Lab2.dir/console.cpp.obj CMakeFiles/Lab2.dir/utils.cpp.obj
+build Lab2.exe: CXX_EXECUTABLE_LINKER__Lab2_Debug CMakeFiles/Lab2.dir/main.cpp.obj CMakeFiles/Lab2.dir/console.cpp.obj CMakeFiles/Lab2.dir/utils.cpp.obj CMakeFiles/Lab2.dir/test.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lab2.dir
