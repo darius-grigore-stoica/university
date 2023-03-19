@@ -18,7 +18,7 @@ void printMenu(){
 
 void Console(){
     int n = 6;
-    int* v = new int[50];//dinamic allocation
+    int v[50];
     int option;
     int run = true;
     while(run) {
@@ -52,5 +52,4 @@ void Console(){
         }
         else cout << "Comanda gresita! Incearca din nou.\n";
     }
-    delete[] v;
 }

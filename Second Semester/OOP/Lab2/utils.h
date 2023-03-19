@@ -9,5 +9,5 @@
 
 void readVector(int& n, int v[50]);
 void printVector(int& n, int v[50]);
-void getSequence(int &n, int v[50], int& left, int& right);
-void getConst(int& n, int v[50], int& left, int& right, int givenConst);
+void getInterval(int a, int b, int& n, int v[50], int& left, int& right);
+void getSign(int& n, int v[50], int& left, int& right );
