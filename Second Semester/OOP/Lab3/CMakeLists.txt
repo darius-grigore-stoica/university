@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.24)
 project(Lab3)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Lab3 main.cpp console.cpp console.h utils.cpp utils.h test.cpp test.h)
+add_executable(Lab3 main.cpp console.h console.cpp utils.h utils.cpp test.h test.cpp console.cpp)

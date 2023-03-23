@@ -1,0 +1,18 @@
+# ninja log v5
+5	85	7012676915275788	CMakeFiles/Sem2.dir/test.cpp.obj	9b4faed0667c7c8f
+1	220	7012670208326187	CMakeFiles/Sem2.dir/main.cpp.obj	222e3ba2a715d358
+1	92	7012676915357309	CMakeFiles/Sem2.dir/Colection.cpp.obj	f3717ede6d79e250
+5	135	7012670009119012	CMakeFiles/Sem2.dir/Iterator.cpp.obj	e2c1a13d55b3a12e
+93	182	7012676916216986	Sem2.exe	49b4ef0f541a7ddd
+2	246	7012913865826281	build.ninja	c84a3842fcf997f
+1	490	7012913871418406	CMakeFiles/Sem2.dir/main.cpp.obj	222e3ba2a715d358
+6	493	7012913871439188	CMakeFiles/Sem2.dir/test.cpp.obj	9b4faed0667c7c8f
+3	499	7012913871509217	CMakeFiles/Sem2.dir/Colection.cpp.obj	f3717ede6d79e250
+2	71	7012913984386598	CMakeFiles/Sem2.dir/test.cpp.obj	9b4faed0667c7c8f
+71	157	7012913985208043	Sem2.exe	58ee4c5270106949
+1	88	7012915703147169	CMakeFiles/Sem2.dir/test.cpp.obj	9b4faed0667c7c8f
+5	88	7012915703147169	CMakeFiles/Sem2.dir/Colection.cpp.obj	f3717ede6d79e250
+89	178	7012915704026024	Sem2.exe	58ee4c5270106949
+6	106	7012916564647697	CMakeFiles/Sem2.dir/test.cpp.obj	9b4faed0667c7c8f
+1	209	7012916565690371	CMakeFiles/Sem2.dir/main.cpp.obj	222e3ba2a715d358
+209	287	7012916566447826	Sem2.exe	58ee4c5270106949

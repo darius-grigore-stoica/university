@@ -11,7 +11,7 @@ void printMenu(){
     strcpy(menu, "1. Citirea unei liste de numere intregi\n");
     strcat(menu, "2. Afisarea unei liste de numere intregi\n");
     strcat(menu, "3. Afisarea celei mai lungi secventa cu numere distincte\n");
-    strcat(menu, "4. Afisarea celei mai lungi secventa în care suma elementelor este egală cu o constantă dată \n");
+    strcat(menu, "4. Afisarea celei mai lungi secventa in care suma elementelor este egală cu o constantă dată \n");
     strcat(menu, "0. Iesire din aplicatie\n");
     cout << menu;
 }
