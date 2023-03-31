@@ -1,0 +1,20 @@
+# ninja log v5
+5	208	7019673078599599	CMakeFiles/Lab2.dir/ATM.cpp.obj	1abac0aca9d60299
+11	488	7017163986326137	CMakeFiles/Lab2.dir/Transaction.cpp.obj	eec410125f10b510
+1	217	7019632065182725	CMakeFiles/Lab2.dir/Colection.cpp.obj	7b589f797ccf7c2d
+1	255	7019696431812716	CMakeFiles/Lab2.dir/main.cpp.obj	90b0eab53960186a
+291	382	7019696433052669	Lab2.exe	eaa5539cf5ac865b
+8	322	7019654746470676	CMakeFiles/Lab2.dir/Transactions.cpp.obj	e4168e653e05340f
+5	273	7019654745970096	CMakeFiles/Lab2.dir/Tranzactii/Transaction.cpp.obj	5f2a96c940ef1b19
+5	230	7019681292509042	CMakeFiles/Lab2.dir/Domain/Tranzactii/Domain.cpp.obj	15f75383c77d8916
+1	205	7019684528174851	CMakeFiles/Lab2.dir/Domain/Tranzactii/Repo.cpp.obj	8adc0f2d292800e5
+1	209	7019693676391670	CMakeFiles/Lab2.dir/Domain/Colectie/Colection.cpp.obj	c1a2a3e690cd4ac
+7	240	7019696431663433	CMakeFiles/Lab2.dir/Domain/ATM/ATM.cpp.obj	5c508a8a2e15bd05
+10	290	7019696432173046	CMakeFiles/Lab2.dir/Domain/UI/UI.cpp.obj	4bd94777b0e83a5
+1	251	7019704523827886	CMakeFiles/Lab2.dir/main.cpp.obj	90b0eab53960186a
+4	262	7019704523938208	CMakeFiles/Lab2.dir/Domain/Tranzactii/Tranzactie.cpp.obj	a83b7e682bf416f0
+13	288	7019704524199439	CMakeFiles/Lab2.dir/Domain/Tranzactii/Repo.cpp.obj	8adc0f2d292800e5
+7	301	7019704524329723	CMakeFiles/Lab2.dir/Domain/Colectie/Colection.cpp.obj	c1a2a3e690cd4ac
+16	311	7019704524439732	CMakeFiles/Lab2.dir/Domain/ATM/ATM.cpp.obj	5c508a8a2e15bd05
+10	318	7019704524510170	CMakeFiles/Lab2.dir/Domain/UI/UI.cpp.obj	4bd94777b0e83a5
+318	414	7019704525434735	Lab2.exe	767c748c698e7aa

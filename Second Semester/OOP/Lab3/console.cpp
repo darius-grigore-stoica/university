@@ -45,7 +45,7 @@ void Console(){
             cin >> givenConst;
             getConst(n, v, left, right, givenConst);
             int p;
-            for(p = left; p <= right; p++)
+            for(p = left; p <= right && right != left; p++)
                 cout << v[p] << " ";
             cout << "\n";
         }

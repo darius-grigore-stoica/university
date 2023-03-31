@@ -1,34 +1,16 @@
-"C:\Program Files\JetBrains\CLion 2022.3.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.3.3/bin/ninja/win/x64/ninja.exe" -G Ninja -S "C:\Users\Darius\OneDrive - Universitatea Babeş-Bolyai\Documents\Github\university\Second Semester\OOP\Lab3" -B "C:\Users\Darius\OneDrive - Universitatea Babeş-Bolyai\Documents\Github\university\Second Semester\OOP\Lab3\cmake-build-debug"
+"C:\Program Files\JetBrains\CLion 2022.3.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.3.3/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\Darius\CLionProjects\OOP\Lab3 -B C:\Users\Darius\CLionProjects\OOP\Lab3\cmake-build-debug
 -- The C compiler identification is GNU 6.3.0
 -- The CXX compiler identification is GNU 6.3.0
--- Check for working C compiler: C:/MinGW/bin/gcc.exe
-CMake Error:
-  Running
-
-   'C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/ninja/win/x64/ninja.exe' '-C' 'C:/Users/Darius/OneDrive - Universitatea Babeş-Bolyai/Documents/Github/university/Second Semester/OOP/Lab3/cmake-build-debug/CMakeFiles/CMakeTmp' '-t' 'recompact'
-
-  failed with:
-
-   ninja: fatal: chdir to 'C:/Users/Darius/OneDrive - Universitatea Babes-Bolyai/Documents/Github/university/Second Semester/OOP/Lab3/cmake-build-debug/CMakeFiles/CMakeTmp' - No such file or directory
-
-
-
-CMake Error:
-  Running
-
-   'C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/ninja/win/x64/ninja.exe' '-C' 'C:/Users/Darius/OneDrive - Universitatea Babeş-Bolyai/Documents/Github/university/Second Semester/OOP/Lab3/cmake-build-debug/CMakeFiles/CMakeTmp' '-t' 'restat' 'build.ninja'
-
-  failed with:
-
-   ninja: fatal: chdir to 'C:/Users/Darius/OneDrive - Universitatea Babes-Bolyai/Documents/Github/university/Second Semester/OOP/Lab3/cmake-build-debug/CMakeFiles/CMakeTmp' - No such file or directory
-
-
-
-CMake Error at C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake:56 (try_compile):
-  Failed to generate test project build system.
-Call Stack (most recent call first):
-  CMakeLists.txt:2 (project)
-
-
--- Configuring incomplete, errors occurred!
-See also "C:/Users/Darius/OneDrive - Universitatea Babeş-Bolyai/Documents/Github/university/Second Semester/OOP/Lab3/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/MinGW/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/MinGW/bin/c++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Darius/CLionProjects/OOP/Lab3/cmake-build-debug
