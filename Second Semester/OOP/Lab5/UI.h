@@ -13,7 +13,10 @@ private:
 public:
     void addSquare();
     void printSquares();
-    void printMenu();
+    void getMaxim();
+    void getPositive();
+    void SequenceOfEquals();
+    static void printMenu();
     void runMenu();
 };
 

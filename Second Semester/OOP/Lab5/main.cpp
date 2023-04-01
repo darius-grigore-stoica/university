@@ -8,14 +8,8 @@ using namespace std;
 
 int main() {
     cout << "Starting...\n";
-    testGetters();
-    testSetters();
-    testArea();
-    testPerimeter();
-    testAddSquare();
-    testRepoGetters();
-    testResize();
-    cout << "All tests passed!\n";
+    testAll();
+    cout << "All tests passed!\n-------\n";
     UI ui = UI();
     ui.runMenu();
     return 0;

@@ -42,7 +42,7 @@ void Repo::addSquare(int x, int y) {
 void Repo::printSquares() {
     int i;
     for(i = 0; i < this->nrElements; i++)
-        cout << this->elements[i] << " ";
+        cout << this->elements[i];
 }
 
 void Repo::resize() {
@@ -59,5 +59,44 @@ void Repo::resize() {
 Square Repo::getAt(int pos) {
     if(pos > -1 && pos < this->nrElements)
         return this->elements[pos];
+}
+
+Square Repo::getMaxim() {
+    Square max = Square();
+    int i;
+    for (i = 0; i < this->nrElements; ++i) {
+        if(max.getArea() < this->elements[i].getArea())
+            max = this->elements[i];
+    }
+    return max;
+}
+
+void Repo::getPositive(int *pos, int& size) {
+    int i;
+    for (i = 0; i < this->nrElements; ++i) {
+        if(this->elements[i].isInFirst())
+            pos[size++] = i;
+    }
+}
+
+void Repo::getSequenceOfEquals(int &left, int &right) {
+    int i;
+    i = 0;
+    int left_c = 0, right_c = 0;
+    int max;
+    max = -1;
+    while(i < this->nrElements - 1){
+        left_c = i;
+        right_c = i + 1;
+        if(this->elements[i] == this->elements[i + 1]) {
+            right_c++;
+        }
+        if(right_c - left_c >= max){
+            left = left_c - 1;
+            right = right_c - 1;
+            max = left - right;
+        }
+        i++;
+    }
 }
 

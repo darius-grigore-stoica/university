@@ -14,9 +14,42 @@ void UI::printSquares() {
     this->repo.printSquares();
 }
 
+void UI::getMaxim() {
+    cout << "Patratul maxim este: \n";
+    Square max = this->repo.getMaxim();
+    cout << max;
+}
+
+void UI::getPositive() {
+    int* pos = new int[50];
+    int size = 0;
+    this->repo.getPositive(pos, size);
+
+    cout << "Patratele aflate in primul cadran sunt:\n";
+    int i;
+    for(i = 0; i < size; i++) {
+        Square res = this->repo.getAt(pos[i]);
+        cout << res;
+    }
+    cout << endl;
+}
+
+void UI::SequenceOfEquals() {
+    int left = 0, right = -1;
+    this->repo.getSequenceOfEquals(left, right);
+    cout << "Cea mai lunga secventa cu numere egale este:\n";
+    int i;
+    for(i = left; i < right; i++)
+        cout << i << " ";
+    cout << endl;
+}
+
 void UI::printMenu() {
     cout << "1. Adauga un patrat nou in lista\n";
     cout << "2. Afiseaza toate patratele\n";
+    cout << "3. Determina cel mai mare patrat\n";
+    cout << "4. Afiseaza patratele din primul cadran\n";
+    cout << "5. Afiseaza cea mai lunga secventa cu elemente egale\n";
     cout << "0. Iesire din aplicatie\n";
 }
 
@@ -24,12 +57,18 @@ void UI::runMenu() {
     while(true){
         this->printMenu();
         int option;
-        cout << "Introduceti optiunea:";
+        cout << "Introduceti optiunea:\n";
         cin >> option;
         if(option == 1)
             this->addSquare();
         else if(option == 2)
             this->printSquares();
+        else if(option == 3)
+            this->getMaxim();
+        else if(option == 4)
+            this->getPositive();
+        else if(option == 5)
+            this->SequenceOfEquals();
         else if(option == 0)
             break;
     }
