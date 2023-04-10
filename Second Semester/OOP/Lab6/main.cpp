@@ -7,7 +7,7 @@ int main() {
     testAll();
     cout << "All test passed!\n";
     Repo r = Repo();
-    UI ui = UI(r);
+    UI ui = UI();
     ui.runMenu();
     return 0;
 }

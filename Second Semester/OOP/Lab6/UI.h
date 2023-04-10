@@ -2,6 +2,7 @@
 // Created by Darius on 3/29/2023.
 //
 #include "Repo.h"
+#include "Operations.h"
 #include <iostream>
 using namespace std;
 #ifndef LAB5_UI_H
@@ -10,6 +11,7 @@ using namespace std;
 class UI{
 private:
     Repo repo;
+    Operations operations;
 public:
     UI();
     UI(Repo& r);

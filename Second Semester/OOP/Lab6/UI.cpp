@@ -5,10 +5,7 @@
 
 UI::UI() {
     this->repo = Repo();
-}
-
-UI::UI(Repo &r) {
-    this->repo = r;
+    this->operations = Operations();
 }
 
 void UI::addSquare() {
@@ -24,23 +21,26 @@ void UI::printSquares() {
 
 void UI::getMaxim() {
     cout << "Patratul maxim este: \n";
-    Square max = this->repo.getMaxim();
+    Square max = this->operations.getMaxim(this->repo);
     cout << max;
 }
 
 void UI::getPositive() {
     cout << "Patratele aflate in primul cadran sunt:\n";
-    this->repo.getPositive();
+    this->operations.getPositive(this->repo);
 }
 
 void UI::SequenceOfEquals() {
     int left = 0, right = -1;
-    this->repo.getSequenceOfEquals(left, right);
+    this->operations.getSequenceOfEquals(this->repo, left, right);
     cout << "Cea mai lunga secventa cu numere egale este:\n";
     int i;
-    for(i = left; i <= right; i++){
-        Square res = this->repo.getAt(i);
-        cout << res;
+    //cout << left << " " << right << endl;
+    if(left != right) {
+        for (i = left; i <= right; i++) {
+            Square res = this->repo.getAt(i);
+            cout << res;
+        }
     }
     cout << endl;
 }

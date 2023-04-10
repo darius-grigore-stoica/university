@@ -4,6 +4,7 @@
 
 #include "Square.h"
 #include "Repo.h"
+#include "Operations.h"
 #include "test.h"
 #include <assert.h>
 
@@ -90,34 +91,42 @@ void testGetMaxim(){
     Repo repo = Repo();
     repo.addSquare(5, 10);
     repo.addSquare(100, 50);
+    Operations op = Operations();
     Square max = Square(100, 50);
-    assert(repo.getMaxim() == max);
+    assert(op.getMaxim(repo) == max);
 
     //test for negative values
     Repo repoN = Repo();
     repoN.addSquare(5, 5);
     repoN.addSquare(-7, 6);
+    Operations opN = Operations();
     Square maxN = Square(-7, 6);
-    assert(repoN.getMaxim() == maxN);
+    assert(opN.getMaxim(repoN) == maxN);
 }
 
 void testGetSequenceOfEquals(){
     Repo r = Repo();
     int left; int right;
     left = 0; right = 0;
-    r.getSequenceOfEquals(left, right);
+    Operations op = Operations();
+
+    op.getSequenceOfEquals(r, left, right);
     assert(left == 0 && right == 0);
     r.addSquare(4, 6);
     r.addSquare(4, 8);
     r.addSquare(4, 8);
     r.addSquare(1, 90);
-    r.getSequenceOfEquals(left, right);
+    Operations op2 = Operations();
+
+    op2.getSequenceOfEquals(r, left, right);
     assert(left == 1 && right == 2);
 
     r.addSquare(99, 100);
     r.addSquare(99, 100);
     r.addSquare(4, 6);
     left = 0, right = 0;
-    r.getSequenceOfEquals(left, right);
+    Operations op3 = Operations();
+
+    op3.getSequenceOfEquals(r, left, right);
     assert(left == 3 && right == 4);
 }

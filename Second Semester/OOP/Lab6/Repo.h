@@ -28,20 +28,8 @@ public:
     void addSquare(int x, int y);
     //Afiseaza lista de patrate sub forma Patrat: latura
     void printSquares();
-    //Determina cel mai mare patrat din lista de patrate
-    Square getMaxim();
-    /*
-     * Desc: Afiseaza toate patratele aflate complet in cadranul I al cercului geometrie
-     * */
-    void getPositive();
-    /* Desc: Identifica cea mai lunga secventa de patrate egale
-     * In:
-     * @param:: left, right - Intregi care retin indexul la care incepe, respectiv la care se termina, secventa identificata
-     * Nota: Spune despre două patrate că sunt egale dacă punctele lor sunt identice
-     * */
-    void getSequenceOfEquals(int& left, int& right);
-    //Returneaza elementul Patrat de pe pozitia pos data ca parametru
-    Square getAt(int pos);
+    queue<Square> getElems();
+    Square getAt(int i);
 };
 
 #endif //LAB5_REPO_H
