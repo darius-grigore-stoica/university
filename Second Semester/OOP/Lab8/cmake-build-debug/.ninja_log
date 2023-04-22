@@ -1,0 +1,20 @@
+# ninja log v5
+2348	2630	7031989799862075	Lab7.exe	7ad9ec31c9fb74d
+4	644	7038586076802020	CMakeFiles/Lab8.dir/main.cpp.obj	f952fb1099225e02
+19	365	7034306119092278	CMakeFiles/Lab8.dir/Service.cpp.obj	b00996ded4cf9bf1
+14	362	7034306119050627	CMakeFiles/Lab8.dir/Repo.cpp.obj	b9fe1af5a6952ac0
+1	262	7034301353748785	CMakeFiles/Lab8.dir/Cheltuieli.cpp.obj	83e1ff07e3cd25bc
+5	414	7034306119593600	CMakeFiles/Lab8.dir/Test.cpp.obj	4e1e995edda1c4ae
+769	1039	7038586080350350	Lab8.exe	951556cb9f1c25f1
+4	644	7034311880515339	CMakeFiles/Lab8.dir/UI.cpp.obj	f00f9f74df775d4d
+21	748	7038586077865814	CMakeFiles/Lab8.dir/repository/Repo.cpp.obj	859590ddafccd753
+47	728	7038586077652134	CMakeFiles/Lab8.dir/UI/UI.cpp.obj	b3d4fdae42389dd8
+8	465	7037694589387016	CMakeFiles/Lab8.dir/domain/Cheltuieli.cpp.obj	b94c76297c2853d
+28	754	7038586077925966	CMakeFiles/Lab8.dir/service/Service.cpp.obj	5552442231b08f5d
+12	769	7038586078072451	CMakeFiles/Lab8.dir/tests/Test.cpp.obj	e906909a7e2337a1
+2	440	7038586318892437	CMakeFiles/Lab8.dir/tests/Test.cpp.obj	e906909a7e2337a1
+441	687	7038586321201845	Lab8.exe	951556cb9f1c25f1
+2	448	7038586541173499	CMakeFiles/Lab8.dir/tests/Test.cpp.obj	e906909a7e2337a1
+449	629	7038586542890162	Lab8.exe	951556cb9f1c25f1
+4	866	7038587033792656	CMakeFiles/Lab8.dir/tests/Test.cpp.obj	e906909a7e2337a1
+867	1202	7038587036978646	Lab8.exe	951556cb9f1c25f1
