@@ -9,11 +9,7 @@ class Service{
 private:
     Repo r;
     vector<int> monede;
-    /*
-     * 0 - 5 bani
-     * 1 - 10 bani
-     * 2 - 50 bani
-     * */
+    int suma();
 public:
     Service();
     explicit Service(Repo& r, vector<int> monede);
@@ -25,8 +21,9 @@ public:
     int size();
     Produs& getAt(int pos);
 
-    int buy(char* nume, int bancnote);
-    int sume_monezi();
+    int findPosition(char* nume, int bancnote);
+    float buy(char* nume, int bancnote);
+    void printMonede();
     friend ostream &operator<<(ostream& os, const Service& s);
 };
 #endif //LAB9_SERVICE_H

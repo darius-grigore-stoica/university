@@ -10,12 +10,13 @@ private:
 public:
     UI();
     ~UI();
-    void printMenu();
+    static void printMenu();
     void runMenu();
-    void buy();
-    void read();
     void add();
     void update();
     void remove();
+    void printRepo();
+    void printMonede();
+    void buy();
 };
 #endif //LAB9_UI_H

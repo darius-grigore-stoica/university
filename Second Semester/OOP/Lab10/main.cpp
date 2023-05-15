@@ -1,4 +1,3 @@
-#include <iostream>
 #include "App/tests/test.h"
 #include "App/UI/UI.h"
 using namespace std;

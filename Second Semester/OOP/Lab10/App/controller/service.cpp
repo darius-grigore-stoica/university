@@ -3,7 +3,7 @@
 //
 #include "service.h"
 #include "stdexcept"
-#include <string.h>
+#include <cstring>
 
 Service::Service() {
     this->r = Repo();
@@ -33,7 +33,7 @@ Service::Service(const Service &s) {
         this->monede.push_back(s.monede.at(i));
 }
 
-Service::~Service() {}
+Service::~Service() = default;
 
 void Service::add(float pret, char *cod, char *nume) {
     Produs p = Produs(pret, cod, nume);
@@ -55,7 +55,7 @@ void Service::remove(int pos) {
 
 Produs &Service::getAt(int pos) {
     if (pos > -1 && pos <= this->r.size()) {
-        this->r.getAt(pos);
+        return this->r.getAt(pos);
     } else throw std::invalid_argument("Pozitie invalida");
 }
 
@@ -63,30 +63,50 @@ int Service::size() {
     return this->r.size();
 }
 
-int Service::buy(char *nume, int bancnote) {
-    int pos = -1;
-    int i = 0;
-    while (i < this->r.size()) {
-        if (strcmp(this->r.getAt(i).getNume(), nume) == 0) {
-            if (bancnote >= this->r.getAt(i).getPret()) {
-                pos = i;
-                break;
-            }
-        }
-        i++;
-    }
-    Produs p = this->r.getAt(pos);
-    int rest = bancnote - p.getPret();
-    this->r.remove(pos);
-    int suma = 0;
-    for (int p = 0; p < this->monede.size(); p++)
-        suma += this->monede.at(p);
-    if (suma >= rest * 10)
-        return rest;
-    else return -1;
+float Service::buy(char *nume, int bancnote) {
+    //selectam produsul cu numele dat ca parametru si cu pretul mai mic decat bancnote
+    int pos = findPosition(nume, bancnote);
+    if (pos > -1) {
+        Produs product = this->r.getAt(pos);
+
+        //calculam restul pe care trebuie sa il oferim
+        float rest = bancnote - product.getPret();
+
+        //stergem produsul din lista de produse
+        this->r.remove(pos);
+
+        //verificam daca restul poate fi platit, caz in care il returnam
+        if (suma() >= rest * 10)
+            return rest;
+        else return -1;
+    } else return -1;
 }
 
 ostream &operator<<(ostream &os, const Service &s) {
     cout << s.r;
     return os;
+}
+
+int Service::findPosition(char *nume, int bancnote) {
+    int pos = -1;
+    int i = 0;
+    while (i < this->r.size() && pos == -1) {
+        if (strcmp(this->r.getAt(i).getNume(), nume) == 0)
+            if (bancnote >= this->r.getAt(i).getPret())
+                pos = i;
+        i++;
+    }
+    return pos;
+}
+
+int Service::suma() {
+    int suma = 0;
+    for (int p: this->monede)
+        suma += p;
+    return suma;
+}
+
+void Service::printMonede() {
+    for (int p: this->monede)
+        cout << p << endl;
 }

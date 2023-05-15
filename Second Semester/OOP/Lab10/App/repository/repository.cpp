@@ -18,12 +18,12 @@ void Repo::add(const Produs &p) {
 Produs &Repo::getAt(int pos) {
     if(pos > -1 && pos < this->nrElems)
         return this->elems[pos];
-    else throw std::invalid_argument("Pozitie invalida");
+    else throw std::invalid_argument("Pozitie invalida pentru extragere");
 }
 
 void Repo::update(const Produs &p, int pos) {
     if(pos > -1 && pos < this->nrElems)
-        this->elems.at(pos) = p;
+        this->elems[pos] = p;
     else throw std::invalid_argument("Pozitie invalida pentru actualizare");
 }
 

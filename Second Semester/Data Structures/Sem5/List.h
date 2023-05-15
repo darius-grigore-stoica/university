@@ -113,16 +113,23 @@ template<class T>
 void List<T>::insert(T e, int pos){
     Node<T>* newNode = new Node<T>(e, nullptr, nullptr);
     Node<T>* crt = this->head;
-    int noE = 0;
-    while (noE < pos){
-        crt = crt->next;
-        noE++;
+    if(this->nrElems > 0) {
+        int noE = 0;
+        while (noE < pos - 1) {
+            crt = crt->next;
+            noE++;
+        }
+        newNode->next = crt->next;
+        newNode->prev = crt;
+        crt->next = newNode;
+        crt->next->prev = newNode;
+        this->nrElems++;
+    } else {
+        newNode->next = this->head;
+        this->head->prev = newNode;
+        this->head = newNode;//mutam head-ul la elementul nou adaugat
+        this->nrElems++;
     }
-    newNode->next = crt->next;
-    newNode->prev = crt;
-    crt->next = newNode;
-    newNode->next->prev= newNode;
-    this->nrElems++;
 };
 
 #endif //SEM5_LDI_H
