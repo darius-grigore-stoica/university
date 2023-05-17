@@ -55,35 +55,35 @@ build CMakeFiles/Lab10.dir/main.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Dar
   OBJECT_DIR = CMakeFiles\Lab10.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab10.dir
 
-build CMakeFiles/Lab10.dir/App/domain/entitate.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/domain/entitate.cpp || cmake_object_order_depends_target_Lab10
-  DEP_FILE = CMakeFiles\Lab10.dir\App\domain\entitate.cpp.obj.d
+build CMakeFiles/Lab10.dir/App/entitate.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/entitate.cpp || cmake_object_order_depends_target_Lab10
+  DEP_FILE = CMakeFiles\Lab10.dir\App\entitate.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++1z
   OBJECT_DIR = CMakeFiles\Lab10.dir
-  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App\domain
+  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App
 
-build CMakeFiles/Lab10.dir/App/repository/repository.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/repository/repository.cpp || cmake_object_order_depends_target_Lab10
-  DEP_FILE = CMakeFiles\Lab10.dir\App\repository\repository.cpp.obj.d
+build CMakeFiles/Lab10.dir/App/repository.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/repository.cpp || cmake_object_order_depends_target_Lab10
+  DEP_FILE = CMakeFiles\Lab10.dir\App\repository.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++1z
   OBJECT_DIR = CMakeFiles\Lab10.dir
-  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App\repository
+  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App
 
-build CMakeFiles/Lab10.dir/App/tests/test.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/tests/test.cpp || cmake_object_order_depends_target_Lab10
-  DEP_FILE = CMakeFiles\Lab10.dir\App\tests\test.cpp.obj.d
+build CMakeFiles/Lab10.dir/App/test.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/test.cpp || cmake_object_order_depends_target_Lab10
+  DEP_FILE = CMakeFiles\Lab10.dir\App\test.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++1z
   OBJECT_DIR = CMakeFiles\Lab10.dir
-  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App\tests
+  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App
 
-build CMakeFiles/Lab10.dir/App/controller/service.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/controller/service.cpp || cmake_object_order_depends_target_Lab10
-  DEP_FILE = CMakeFiles\Lab10.dir\App\controller\service.cpp.obj.d
+build CMakeFiles/Lab10.dir/App/service.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/service.cpp || cmake_object_order_depends_target_Lab10
+  DEP_FILE = CMakeFiles\Lab10.dir\App\service.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++1z
   OBJECT_DIR = CMakeFiles\Lab10.dir
-  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App\controller
+  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App
 
-build CMakeFiles/Lab10.dir/App/UI/UI.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/UI/UI.cpp || cmake_object_order_depends_target_Lab10
-  DEP_FILE = CMakeFiles\Lab10.dir\App\UI\UI.cpp.obj.d
+build CMakeFiles/Lab10.dir/App/UI.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/UI.cpp || cmake_object_order_depends_target_Lab10
+  DEP_FILE = CMakeFiles\Lab10.dir\App\UI.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++1z
   OBJECT_DIR = CMakeFiles\Lab10.dir
-  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App\UI
+  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App
 
 
 # =============================================================================
@@ -93,7 +93,7 @@ build CMakeFiles/Lab10.dir/App/UI/UI.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/User
 #############################################
 # Link the executable Lab10.exe
 
-build Lab10.exe: CXX_EXECUTABLE_LINKER__Lab10_Debug CMakeFiles/Lab10.dir/main.cpp.obj CMakeFiles/Lab10.dir/App/domain/entitate.cpp.obj CMakeFiles/Lab10.dir/App/repository/repository.cpp.obj CMakeFiles/Lab10.dir/App/tests/test.cpp.obj CMakeFiles/Lab10.dir/App/controller/service.cpp.obj CMakeFiles/Lab10.dir/App/UI/UI.cpp.obj
+build Lab10.exe: CXX_EXECUTABLE_LINKER__Lab10_Debug CMakeFiles/Lab10.dir/main.cpp.obj CMakeFiles/Lab10.dir/App/entitate.cpp.obj CMakeFiles/Lab10.dir/App/repository.cpp.obj CMakeFiles/Lab10.dir/App/test.cpp.obj CMakeFiles/Lab10.dir/App/service.cpp.obj CMakeFiles/Lab10.dir/App/UI.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lab10.dir

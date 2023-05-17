@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.22.3)
+cmake_minimum_required(VERSION 3.23)
 project(Lab10)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Lab10 main.cpp App/domain/entitate.h App/domain/entitate.cpp App/repository/repository.h App/repository/repository.cpp App/tests/test.h App/tests/test.cpp App/controller/service.cpp App/controller/service.h App/UI/UI.cpp App/UI/UI.h App/repository/repositoryFile.h)
+add_executable(Lab10 main.cpp App/entitate.h App/entitate.cpp App/repository.h App/repository.cpp App/test.h App/test.cpp App/service.cpp App/service.h App/UI.cpp App/UI.h App/repositoryFile.h App/exception.h)
