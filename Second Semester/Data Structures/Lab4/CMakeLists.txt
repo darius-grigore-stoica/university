@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.22.3)
+cmake_minimum_required(VERSION 3.23)
 project(Lab4)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Lab4 main.cpp Colectie/Colection.cpp Colectie/Colection.h Tranzactii/Tranzactie.h Tranzactii/Tranzactie.cpp ATM/ATM.h ATM/ATM.cpp Tranzactii/Repo.h Tranzactii/Repo.cpp UI/UI.h UI/UI.cpp Vector/VectorDinamic.h List/List.h List/Node.h)
+add_executable(Lab4 main.cpp Colection.cpp Colection.h Tranzactie.h Tranzactie.cpp ATM.h ATM.cpp Repo.h Repo.cpp UI.h UI.cpp List.h Node.h)
