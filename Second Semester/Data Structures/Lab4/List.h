@@ -38,44 +38,51 @@ public:
 
 template<class T>
 T List<T>::getAt(int pos) const {
-//    if(pos < 0 || pos >= this->nrElems)
-//        throw std::invalid_argument("Pozitie invalida pentru extragere");
-    int noE = 0;
-    Node<T> *crt = this->head;
-    while (noE < pos && crt != this->tail) {
-        crt = crt->next;
-        noE++;
+    if (head == nullptr) {
+        return -1;
     }
-    if (crt)
-        return crt->info;
-    else return -1;
+
+    Node<T> *currentNode = head;
+    int currentPosition = 0;
+    while (currentPosition < pos && currentNode != nullptr) {
+        currentNode = currentNode->next;
+        currentPosition++;
+    }
+
+    if (currentNode == nullptr) {
+        return -1;
+    }
+    else return head->info;
 }
 
 template<class T>
 void List<T>::push_back(T e) {
-    Node<T> *newNode = new Node<T>(e, nullptr, nullptr);
-    if (this->head == nullptr) {
-        this->head = newNode;
-        this->nrElems++;
-    } else {
-        Node<T> *crt = this->head;
-        while (crt->next != nullptr) {
-            crt = crt->next;
+    Node<T>* newNode = new Node<T>(e, nullptr, nullptr);
+    if (head == nullptr) {
+        // If the list is empty, make the new node as the head
+        newNode->prev = nullptr;
+        head = newNode;
+    }
+    else {
+        Node<T> *current = head;
+        // Traverse to the last node
+        while (current->next != nullptr) {
+            current = current->next;
         }
-        crt->next = newNode;
-        newNode->prev = crt;
-        this->tail = newNode;
-        this->nrElems++;
+        // Add the new node at the end
+        current->next = newNode;
+        newNode->prev = current;
     }
 }
 
 template<class T>
 void List<T>::push(T e) {
-    Node<T> *newNode = new Node<T>(e, nullptr, nullptr);
-    newNode->next = this->head;
-    this->head->prev = newNode;
-    this->head = newNode;//mutam head-ul la elementul nou adaugat
-    this->nrElems++;
+    Node<T>* newNode = new Node<T>(e, head, nullptr);
+
+    if (head != nullptr) {
+        (head)->prev = newNode;
+    }
+    head = newNode;
 }
 
 template<class T>
@@ -101,23 +108,25 @@ void List<T>::remove(int pos) {
 
 template<class T>
 T List<T>::update(T e, int pos) {
-    if(this->head == nullptr) {
-        push_back(e);
-        return e;
+    if (head == nullptr) {
+        return -1;
     }
-    else {
-        Node<T> *crt = this->head;
-        int noE = 0;
-        while (noE < pos && crt->next != nullptr) {
-            crt = crt->next;
-            noE++;
-        }
-        if (crt->next != nullptr) {
-            T old_value = crt->info;
-            crt->info = e;
-            return old_value;
-        }
+
+    Node<T>* currentNode = head;
+    int currentPosition = 1;
+
+    // Traverse to the specified position
+    while (currentPosition < pos && currentNode != nullptr) {
+        currentNode = currentNode->next;
+        currentPosition++;
     }
+
+    if (currentNode == nullptr) {
+        return -1;
+    }
+    // Update the value of the node
+    currentNode->info = e;
+    return e;
 }
 
 template<class T>
@@ -127,25 +136,32 @@ int List<T>::size() {
 
 template<class T>
 void List<T>::insert(T e, int pos) {
-    Node<T> *newNode = new Node<T>(e, nullptr, nullptr);
-    if (this->head == nullptr) {
-        this->head = newNode;
-        this->nrElems++;
-    } else {
-        Node<T> *crt = this->head;
-        int noE = 0;
-        while (noE <= pos && crt->next != nullptr) {
-            crt = crt->next;
-            noE++;
-        }
-        Node<T> *prv = crt->prev;
-        newNode->prev = prv;
-        newNode->next = crt;
-        prv->next = newNode;
-        crt->prev = newNode;
-        this->nrElems++;
+    if (head == nullptr) {
+        throw std::invalid_argument("Lista este goala");
     }
 
+    Node<T> *currentNode = head;
+    int currentPosition = 1;
+
+    // Traverse to the specified position
+    while (currentPosition < pos && currentNode != nullptr) {
+        currentNode = currentNode->next;
+        currentPosition++;
+    }
+
+    if (currentNode != nullptr) {
+        // Create a new node
+        Node<T> *newNode = new Node<T>(e, nullptr, nullptr);
+        // Insert the new node after the current node
+        newNode->prev = currentNode;
+        newNode->next = currentNode->next;
+
+        if (currentNode->next != nullptr) {
+            currentNode->next->prev = newNode;
+        }
+        currentNode->next = newNode;
+        return e;
+    }
 };
 
 #endif //SEM5_LDI_H

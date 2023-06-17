@@ -26,5 +26,6 @@ public:
     float buy(char* nume, int bancnote);
     void printMonede();
     friend ostream &operator<<(ostream& os, const Service& s);
+    void eliminare_monezi(int rest);
 };
 #endif //LAB9_SERVICE_H

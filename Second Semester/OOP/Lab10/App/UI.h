@@ -18,6 +18,6 @@ public:
     void printRepo();
     void printMonede();
     void buy();
-
+    void eliminare_monezi(int rest);
 };
 #endif //LAB9_UI_H

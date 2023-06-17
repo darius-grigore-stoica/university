@@ -85,6 +85,12 @@ build CMakeFiles/Lab10.dir/App/UI.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/D
   OBJECT_DIR = CMakeFiles\Lab10.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App
 
+build CMakeFiles/Lab10.dir/App/repositoryFile.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/Darius/CLionProjects/OOP/Lab10/App/repositoryFile.cpp || cmake_object_order_depends_target_Lab10
+  DEP_FILE = CMakeFiles\Lab10.dir\App\repositoryFile.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++1z
+  OBJECT_DIR = CMakeFiles\Lab10.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab10.dir\App
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Lab10
@@ -93,7 +99,7 @@ build CMakeFiles/Lab10.dir/App/UI.cpp.obj: CXX_COMPILER__Lab10_Debug C$:/Users/D
 #############################################
 # Link the executable Lab10.exe
 
-build Lab10.exe: CXX_EXECUTABLE_LINKER__Lab10_Debug CMakeFiles/Lab10.dir/main.cpp.obj CMakeFiles/Lab10.dir/App/entitate.cpp.obj CMakeFiles/Lab10.dir/App/repository.cpp.obj CMakeFiles/Lab10.dir/App/test.cpp.obj CMakeFiles/Lab10.dir/App/service.cpp.obj CMakeFiles/Lab10.dir/App/UI.cpp.obj
+build Lab10.exe: CXX_EXECUTABLE_LINKER__Lab10_Debug CMakeFiles/Lab10.dir/main.cpp.obj CMakeFiles/Lab10.dir/App/entitate.cpp.obj CMakeFiles/Lab10.dir/App/repository.cpp.obj CMakeFiles/Lab10.dir/App/test.cpp.obj CMakeFiles/Lab10.dir/App/service.cpp.obj CMakeFiles/Lab10.dir/App/UI.cpp.obj CMakeFiles/Lab10.dir/App/repositoryFile.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lab10.dir

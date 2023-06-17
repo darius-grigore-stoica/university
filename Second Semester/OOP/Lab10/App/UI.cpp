@@ -56,8 +56,10 @@ void UI::buy() {
 
     try {
         float rest = this->s.buy(nume, bancnote);
-        if (rest > -1)
+        if (rest > -1) {
             cout << "Restul este: " << rest << endl;
+            eliminare_monezi(rest);
+        }
         else cout << "Nu se poate cumpara!\n";
     } catch (Exception &exp) {
         cout << exp.getMessage();
@@ -119,6 +121,10 @@ void UI::printRepo() {
 
 void UI::printMonede() {
     this->s.printMonede();
+}
+
+void UI::eliminare_monezi(int rest) {
+    this->s.eliminare_monezi(rest);
 }
 
 UI::~UI() = default;

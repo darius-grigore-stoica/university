@@ -13,7 +13,10 @@ int Collection::size() {
     int i;
     int lenght = 0;
     for (i = 0; i < this->distinctelements; i++)
-        lenght += this->occurrences.getAt(i);
+        try {
+            int occ = this->occurrences.getAt(i);
+            lenght += occ;
+        } catch (...){}
     return lenght;
 }
 
@@ -136,12 +139,8 @@ Collection &Collection::operator=(const Collection &c) {
     this->distinctelements = c.distinctelements;
     int i;
     for (i = 0; i < c.distinctelements; i++) {
-        if(this->elements.getAt(i) == -1)
-            this->elements.push_back(c.elements.getAt(i));
-        else this->elements.update(c.elements.getAt(i), i);
-        if(this->occurrences.getAt(i) == -1)
-            this->occurrences.push_back(c.occurrences.getAt(i));
-        else this->occurrences.update(c.occurrences.getAt(i), i);
+        this->elements.update(c.elements.getAt(i), i);
+        this->occurrences.update(c.occurrences.getAt(i), i);
     }
     return *this;
 }
@@ -176,7 +175,7 @@ int Collection::getOccurences(int poz) {
 void Collection::sort() {
     for (int i = 0; i < this->distinctelements - 1; ++i) {
         for (int j = i + 1; j < this->distinctelements; ++j) {
-            if(this->elements.getAt(i) <= this->elements.getAt(j)) {
+            if(this->elements.getAt(i) > this->elements.getAt(j)) {
                 int aux = this->elements.getAt(i);
                 int aux2 = this->occurrences.getAt(i);
                 this->elements.update(this->elements.getAt(j), i);

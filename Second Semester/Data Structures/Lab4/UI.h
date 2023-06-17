@@ -21,5 +21,6 @@ public:
     void runMenu();
     void retragere(int& i);
     void printTranzacti();
+    void load(string filename);
 };
 #endif //LAB2_UI_H

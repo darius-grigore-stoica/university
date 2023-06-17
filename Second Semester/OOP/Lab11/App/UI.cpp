@@ -1,0 +1,149 @@
+//
+// Created by Darius on 5/7/2023.
+//
+#include "UI.h"
+#include <iostream>
+
+using namespace std;
+
+UI::UI() {
+    this->s = Service();
+}
+
+void UI::printMenu() {
+    cout << "1. Adauga produs\n";
+    cout << "2. Actualizeaza produs\n";
+    cout << "3. Sterge produs\n";
+    cout << "4. Afiseaza toate produsele\n";
+    cout << "5. Cumpara produs\n";
+    cout << "6. Arata monedele din tonomat\n";
+    cout << "0. Iesire din aplicatie\n";
+}
+
+void UI::runMenu() {
+    while (true) {
+        this->printMenu();
+        int option;
+        cout << "Introduceti optiunea:\n";
+        cin >> option;
+        if (option == 1)
+            add();
+        else if (option == 2)
+            update();
+        else if (option == 3)
+            remove();
+        else if (option == 4)
+            printRepo();
+        else if (option == 5)
+            buy();
+        else if (option == 6)
+            printMonede();
+        else if (option == 0)
+            break;
+        else cout << "Incercati alta comanda!\n";
+    }
+}
+
+void UI::buy() {
+    cout << "Introduceti numele produsului:\n";
+    char *nume = new char[256];
+    cin.ignore();
+    cin.getline(nume, 256);
+    try {
+        cout << "Introduceti bancnotele:\n";
+        int bancnote;
+        cin >> bancnote;
+        try {
+            float rest = this->s.buy(nume, bancnote);
+            if (rest > -1) {
+                cout << "Restul este: " << rest << endl;
+                eliminare_monezi(rest);
+            }
+        } catch (Exception &exp) {
+            cout << exp.getMessage();
+        } catch (...) {}
+    } catch (Exception &esp) {
+        cout << esp.getMessage();
+    }
+}
+
+void UI::add() {
+    float pret;
+    cout << "Pret:";
+    cin >> pret;
+    try {
+        char *cod = new char[256];
+        cout << "Cod:";
+        cin.ignore();
+        cin.getline(cod, 256);
+        try {
+            char *nume = new char[256];
+            cout << "Nume:";
+            cin.getline(nume, 256);
+            try {
+                this->s.add(pret, cod, nume);
+            }
+            catch (Exception &esp) {
+                cout << esp.getMessage();
+            }
+        } catch (Exception &esp) {
+            cout << esp.getMessage();
+        }
+    } catch (Exception &esp) {
+        cout << esp.getMessage();
+    }
+}
+
+void UI::update() {
+    float pret;
+    cout << "Pret:";
+    cin >> pret;
+    try {
+        char *cod = new char[256];
+        cout << "Cod:";
+        cin.ignore();
+        cin.getline(cod, 256);
+        try {
+            char *nume = new char[256];
+            cout << "Nume:";
+            cin.getline(nume, 256);
+            try {
+                int pos;
+                cout << "Pozitia pentru actualizare:";
+                cin >> pos;
+                this->s.update(pret, cod, nume, pos);
+            }
+            catch (Exception &esp) {
+                cout << esp.getMessage();
+            }
+        } catch (Exception &esp) {
+            cout << esp.getMessage();
+        }
+    } catch (Exception &esp) {
+        cout << esp.getMessage();
+    }
+}
+
+void UI::remove() {
+    int pos;
+    cout << "Pozitia pentru stergere:";
+    cin >> pos;
+    this->s.remove(pos);
+}
+
+void UI::printRepo() {
+    if (this->s.size() > 0)
+        cout << this->s;
+    else cout << "Nu exista elemente in lista de produse\n";
+}
+
+void UI::printMonede() {
+    this->s.printMonede();
+}
+
+void UI::eliminare_monezi(int rest) {
+    this->s.eliminare_monezi(rest);
+}
+
+UI::~UI() =
+default;

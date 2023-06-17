@@ -1,4 +1,8 @@
-4,1,apa plata
-3,2,ciocolata milka
-10,3,chipsuri chio
-10,5,cold brew
+15,2,corn
+10,1,corn
+10,1,corn
+10,1,corn
+10,1,corn
+10,1,corn
+10,1,corn
+10,1,corn

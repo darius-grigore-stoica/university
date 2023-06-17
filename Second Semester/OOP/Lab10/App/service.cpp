@@ -41,7 +41,6 @@ void Service::add(float pret, char *cod, char *nume) {
     try {
         Produs p = Produs(pret, cod, nume);
         this->r.add(p);
-        this->r.write_to_file();
     } catch (Exception &exp) {
         cout << exp.getMessage();
     } catch (...) {}
@@ -51,7 +50,6 @@ void Service::update(float pret, char *cod, char *nume, int pos) {
     try {
         Produs p = Produs(pret, cod, nume);
         this->r.update(p, pos);
-        this->r.write_to_file();
     } catch (Exception &exp) {
         cout << exp.getMessage();
     } catch (...) {}
@@ -60,7 +58,6 @@ void Service::update(float pret, char *cod, char *nume, int pos) {
 void Service::remove(int pos) {
     try {
         this->r.remove(pos);
-        this->r.write_to_file();
     } catch (Exception &exp) {
         cout << exp.getMessage();
     } catch (...) {}
@@ -100,11 +97,8 @@ int Service::findPosition(char *nume, int bancnote) {
     int pos = -1;
     int i = 0;
     while (i < this->r.size() && pos == -1) {
-        if (strcmp(this->r.getAt(i).getNume(), nume) == 0) {
-            if (bancnote < this->r.getAt(i).getPret())
-                throw Exception("Nu ati introdus destul bancnote\n");
-            else pos = i;
-        } else throw Exception("Nu s-a gasit produsul cu numele introdus\n");
+        if (strcmp(this->r.getAt(i).getNume(), nume) == 0)
+            pos = i;
         i++;
     }
     return pos;
@@ -120,4 +114,11 @@ int Service::suma() {
 void Service::printMonede() {
     for (int p: this->monede)
         cout << p << endl;
+}
+
+void Service::eliminare_monezi(int rest) {
+    while(rest > 0){
+        rest -= this->monede[this->monede.size()];
+        this->monede.pop_back();
+    }
 }
