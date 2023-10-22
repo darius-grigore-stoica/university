@@ -22,6 +22,11 @@ def timing_decorator(func):
 # Euclidean algorithm to find GCD
 @timing_decorator
 def euclidean_gcd(a, b):
+    if a < 0 or b < 0:
+        a = abs(a)
+        b = abs(b)
+    if a == 0 or b == 0:
+        return 0
     while b:
         a, b = b, a % b
     return a
@@ -30,6 +35,11 @@ def euclidean_gcd(a, b):
 # Multiple subtractions algorithm to find GCD
 @timing_decorator
 def subtractions_gdc(a, b):
+    if a < 0 or b < 0:
+        a = abs(a)
+        b = abs(b)
+    if a == 0 or b == 0:
+        return 0
     while a != b:
         if a > b:
             a -= b
@@ -56,25 +66,29 @@ def find_prime_factors(n):
 # Prime Factorization algorithm to find GCD
 @timing_decorator
 def prime_factorization_gcd(a, b):
-    a_factors = find_prime_factors(a)
-    b_factors = find_prime_factors(b)
+    if a == 0 or b == 0:
+        return 0
+    else:
+        a_factors = find_prime_factors(a)
+        b_factors = find_prime_factors(b)
 
-    common_factors = list(set(a_factors) & set(b_factors))
+        common_factors = list(set(a_factors) & set(b_factors))
 
-    gcd = 1
-    for factor in common_factors:
-        gcd *= factor
+        gcd = 1
+        for factor in common_factors:
+            gcd *= factor
 
-    return gcd
+        return gcd
 
 
 def run_time_analysis(a, b):
-    euclidean_gcd(a, b)
-    prime_factorization_gcd(a, b)
-    subtractions_gdc(a, b)
+    e = euclidean_gcd(a, b)
+    s = subtractions_gdc(a, b)
+    p = prime_factorization_gcd(a, b)
+    print(e, s, p)
 
 
 if __name__ == '__main__':
-    a = 12
-    b = 15
-    run_time_analysis(a, b)
+    inputs = [(9, 3), (21241, 2), (312141, 123141), (0, 1231231)]
+    for (a, b) in inputs:
+        run_time_analysis(a, b)
