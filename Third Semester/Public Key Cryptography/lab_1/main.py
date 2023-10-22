@@ -5,6 +5,7 @@
 
 import time
 
+
 # Decorator function to calculate execution time in milliseconds
 def timing_decorator(func):
     def wrapper(*args, **kwargs):
