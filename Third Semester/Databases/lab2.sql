@@ -1,15 +1,6 @@
 USE Education
 
-DELETE From [User]
-DELETE FROM Course;
-DELETE FROM Enrollment
-DELETE FROM Chapter
-DELETE FROM Quiz;
-DELETE FROM Question;
-
 SELECT * FROM [User];
-
-DELETE FROM [User];
 
 INSERT INTO [User] VALUES
 (1, 'A', 'Password123'), (2, 'B', 'SecurePass!'), (3, 'C', 'T456'), (4, 'D', '7aBc$Xyz'), (5, 'E', 'P@ssw0rd');
@@ -49,6 +40,10 @@ INSERT INTO Chapter VALUES
 (1, 1, 2), (2, 3, 4), (3, 2, 2), (4, 1, 5), (5, 3, 2);
 
 SELECT * FROM Quiz
+
+UPDATE Quiz
+SET no_questions = no_questions + 1
+WHERE no_questions is NOT NULL;
 
 INSERT INTO Quiz VALUES
 (1, 3, 7),(2, 1, 2), (3, 5, 5), (4, 4, 9), (5, 2, 1)
