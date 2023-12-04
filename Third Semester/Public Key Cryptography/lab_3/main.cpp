@@ -51,9 +51,6 @@ pair<long, long> generalizedFermat(long long n, long long k) {
     if (s == 0)
         return make_pair(0, 0);
     if (factor1 != 1 && factor1 != n && factor2 != 1 && factor2 != n) {
-        //Sorting the factors in the final pair
-        if (factor1 > factor2)
-            swap(factor1, factor2);
         return make_pair(factor1, factor2);
     }
     return make_pair(0, 0);
