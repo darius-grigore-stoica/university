@@ -74,12 +74,6 @@ FOREIGN KEY (Curs_ID) REFERENCES Curs;
 INSERT INTO Eveniment VALUES
 (1, 1, 101, 0, 'LeetCode 7'), (2, 1, 102, 1, 'FAANG 10'), (3, 3, 101, 0, 'CCC 2023');
 
---Selectam studenti cu nota peste 9 si studenti cu evenimentul necompletat
-SELECT Student_ID, Curs_ID FROM Inscriere
-WHERE Nota > 9
-UNION
-SELECT Student_ID, Curs_ID FROM Eveniment
-WHERE Completat = 0;
 
 INSERT INTO Inscriere (Inscriere_ID, Student_ID, Curs_ID, Data_Inscriere) VALUES (4, 102, 3, '2023-03-01');
 
@@ -100,22 +94,28 @@ INSERT INTO Capitol VALUES (4, 2, 'Integrala Riemann', 2, 6);
 INSERT INTO Capitol VALUES 
 (1, 1, 'Termodinamica I', 4, 3), (2, 3, 'Algoritm de Primaritate', 1, 1);
 
+SELECT * FROM Student
+SELECT * FROM Curs
+SELECT * FROM Inscriere
+SELECT * FROM Eveniment
 
---Selectam cursurile si capitolele din baza de date
+--Selectam studenti cu nota peste 9 si studenti cu evenimentul completat
+SELECT Student_ID, Curs_ID FROM Inscriere
+WHERE Nota > 9
+UNION
+SELECT Student_ID, Curs_ID FROM Eveniment
+WHERE Completat = 1;
+
 SELECT Curs.Curs_Nume AS 'Curs', Capitol.Titlu AS 'Capitol'
 FROM Capitol
 INNER JOIN Curs ON Capitol.Curs_ID = Curs.Curs_ID
 ORDER BY Capitol_ID;
 
---Selectam evenimentele si capitolele din aceleasi cursuri
 SELECT Eveniment.Eveniment_Nume AS 'Eveniment', Capitol.Titlu FROM Eveniment
 INNER JOIN Capitol ON Eveniment.Curs_ID = Capitol.Curs_ID
 
-
---Selectam toti studenti si vedem notele obtinute de cei inscrisi intr-un curs
 SELECT Student.Student_ID, Inscriere.Curs_ID, Inscriere.Nota From Student
 LEFT JOIN Inscriere ON Inscriere.Student_ID = Student.Student_ID
-
 
 --Selectam cate cursuri preda fiecare profesor
 SELECT COUNT(Curs.Curs_ID) AS 'Cursuri Predate', Curs.Profesor
