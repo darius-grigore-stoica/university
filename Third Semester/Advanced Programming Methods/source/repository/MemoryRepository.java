@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class MemoryRepository<T extends Entity> implements IRepository<T> {
-    private List<T> entities = new ArrayList<T>();
+    protected List<T> entities = new ArrayList<T>();
     @Override
     public void add(T e) throws DuplicateElementException, IllegalArgumentException {
         if(e == null)

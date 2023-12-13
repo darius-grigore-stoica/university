@@ -4,9 +4,8 @@ import domain.Pacient;
 import exceptions.DuplicateElementException;
 import repository.IRepository;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Objects;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ServicePacient {
 

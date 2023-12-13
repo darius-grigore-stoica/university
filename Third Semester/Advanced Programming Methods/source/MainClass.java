@@ -1,3 +1,4 @@
+import GUI.JavaFXMain;
 import UI.UI;
 import domain.IEntityFactory;
 import domain.Pacient;
@@ -11,48 +12,58 @@ import service.ServiceProgramare;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.Properties;
 
-public class MainClass{
+public class MainClass {
     public static void main(String[] args) {
-        Properties properties = new Properties();
-        InputStream read_prop;
-        try {
-            read_prop = new FileInputStream("settings.properties");
-            properties.load(read_prop);
-            IRepository<Pacient> repoPacient = null;
-            IRepository<Programare> repoProgramari = null;
-            String pacient = properties.getProperty("Repository_Pacient");
-            switch (pacient) {
-                case "Text" -> {
-                    IEntityFactory<Pacient> PacientFactory = new PacientFactory();
-                    try {
-                        repoPacient = new TextFileRepository<>(properties.getProperty("Pacienti"), PacientFactory);
-                    } catch (DuplicateElementException e) {
-                        throw new RuntimeException(e);
-                    }
+        IRepository<Pacient> repoPacient = null;
+        IRepository<Programare> repoProgramari = null;
+        PacientFactory ec = new PacientFactory();
+
+        Settings setari = Settings.getInstance();
+        switch (setari.getRepoPacientType()) {
+            case "Memory" -> repoPacient = new MemoryRepository<>();
+
+            case "Text" -> {
+                try {
+                    repoPacient = new TextFileRepository<>(setari.getRepoPacientFile(), ec);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (DuplicateElementException e) {
+                    throw new RuntimeException(e);
                 }
-                case "Memory" -> repoPacient = new MemoryRepository<>();
-            }
-            String programari = properties.getProperty("Repository_Programari");
-            switch (programari) {
-                case "Binary" -> {
-                    try {
-                        repoProgramari = new BinaryFileRepository<>(properties.getProperty("Programari"));
-                    } catch (ClassNotFoundException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-                case "Memory" -> repoPacient = new MemoryRepository<>();
             }
 
-            ServicePacient servicePacient = new ServicePacient(repoPacient);
-            ServiceProgramare serviceProgramare = new ServiceProgramare(repoProgramari);
+            case "DB" -> repoPacient = new SQLPacientRepository("myDB.sqlite");
+        }
 
-            UI ui = new UI(servicePacient, serviceProgramare);
-            ui.run_menu();
-        } catch (IOException e){
-            System.out.println(e.getMessage());
+        switch (setari.getRepoAppointmentType()) {
+            case "Memory" -> repoProgramari = new MemoryRepository<>();
+
+            case "Binary" -> {
+                try {
+                    repoProgramari = new BinaryFileRepository<>(setari.getRepoAppointmentFile());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            case "DB" -> repoProgramari = new SQLProgramareRepository("myDB.sqlite");
+        }
+
+        ServicePacient servicePacient = new ServicePacient(repoPacient);
+        ServiceProgramare serviceProgramare = new ServiceProgramare(repoProgramari);
+        String interfata = setari.getInterfaceType();
+
+        switch (interfata) {
+            case "GUI" -> JavaFXMain.main(args);
+            case "Console" -> {
+                UI ui = new UI(servicePacient, serviceProgramare);
+                ui.run_menu();
+            }
         }
     }
 }

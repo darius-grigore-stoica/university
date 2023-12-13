@@ -3,10 +3,12 @@ package UI;
 import domain.Pacient;
 import domain.Programare;
 import exceptions.DuplicateElementException;
+import javafx.util.Pair;
 import service.ServicePacient;
 import service.ServiceProgramare;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class UI {
 
@@ -66,7 +68,7 @@ public class UI {
                         Collection<Programare> programari = serviceProgramare.getAll();
                         for (Programare p : programari)
                             System.out.println(p);
-                    } catch (NullPointerException npe){
+                    } catch (NullPointerException npe) {
                         System.out.println(npe);
                     }
                     break;
@@ -110,7 +112,7 @@ public class UI {
                         System.out.println("Give ID:");
                         int id = Integer.parseInt(String.valueOf(myObj.nextLine()));
                         servicePacient.deletePacient(id);
-                    }catch (NumberFormatException nfe){
+                    } catch (NumberFormatException nfe) {
                         System.out.println(nfe.getMessage());
                     }
                     break;
@@ -119,10 +121,25 @@ public class UI {
                         System.out.println("Give ID:");
                         int id = Integer.parseInt(String.valueOf(myObj.nextLine()));
                         serviceProgramare.deleteProgramare(id);
-                    }catch (NumberFormatException nfe){
+                    } catch (NumberFormatException nfe) {
                         System.out.println(nfe.getMessage());
                     }
                     break;
+
+                case "9":
+                    for (Pacient p : this.servicePacient.getAll())
+                        System.out.println(this.serviceProgramare.getNoAppointmentsForAPacient(p).getKey().toString() + " No. Appointments: " + this.serviceProgramare.getNoAppointmentsForAPacient(p).getValue().toString());
+                case "10":
+                    ArrayList<Pair<String, Integer>> months = this.serviceProgramare.getAllApointmentsByMonth();
+                    for(Pair<String, Integer> month : months)
+                        System.out.println(month.getKey() + " " + month.getValue());
+                case "11":
+                    for (Pacient p : this.servicePacient.getAll())
+                        System.out.println(p.toString() + " No. Days since last appointment: " + this.serviceProgramare.getNoOfDaysSinceLastAppointment(p));
+                case "12":
+                    months = this.serviceProgramare.getAllApointmentsByMonth();
+                    for(Pair<String, Integer> month : months)
+                        System.out.println(month.getKey() + " " + month.getValue());
                 case "x":
                     break;
             }
@@ -141,6 +158,10 @@ public class UI {
         message += "6. Update an appointment\n";
         message += "7. Delete a patient\n";
         message += "8. Delete an appointment\n";
+        message += "9. Print the no. of appointments for every pacient\n";
+        message += "10. Print the no. of appointments for every month\n";
+        message += "11. Print the no. of days since the last appointments of every pacient\n";
+        message += "12. Print the most booked months\n";
         message += "x. Exit\n";
         message += "Option:";
         System.out.println(message);
