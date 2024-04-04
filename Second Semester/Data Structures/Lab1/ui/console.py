@@ -1,3 +1,5 @@
+import print as print
+
 from ui.read import readFile
 from utils.sortari import *
 from utils.search import *

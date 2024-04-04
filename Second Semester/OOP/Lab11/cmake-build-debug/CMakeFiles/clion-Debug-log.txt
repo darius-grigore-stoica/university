@@ -1,4 +1,33 @@
-"C:\Program Files\JetBrains\CLion 2022.3.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.3.3/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\Darius\CLionProjects\OOP\Lab11 -B C:\Users\Darius\CLionProjects\OOP\Lab11\cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/Darius/CLionProjects/OOP/Lab11/cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2022.3.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S "C:\Users\Darius\OneDrive - Universitatea Babeş-Bolyai\Documents\Github\university\Second Semester\OOP\Lab11" -B "C:\Users\Darius\OneDrive - Universitatea Babeş-Bolyai\Documents\Github\university\Second Semester\OOP\Lab11\cmake-build-debug"
+-- The C compiler identification is GNU 6.3.0
+-- The CXX compiler identification is GNU 6.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Check for working C compiler: C:/MinGW/bin/gcc.exe
+-- Check for working C compiler: C:/MinGW/bin/gcc.exe - broken
+CMake Error at C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake:69 (message):
+  The C compiler
+
+    "C:/MinGW/bin/gcc.exe"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: C:/Users/Darius/OneDrive - Universitatea Babeş-Bolyai/Documents/Github/university/Second Semester/OOP/Lab11/cmake-build-debug/CMakeFiles/CMakeTmp
+    
+    Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_0cf07/fast && mingw32-make.exe: *** INTERNAL: readdir: No such file or directory
+    .  Stop.
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/Darius/OneDrive - Universitatea Babeş-Bolyai/Documents/Github/university/Second Semester/OOP/Lab11/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "C:/Users/Darius/OneDrive - Universitatea Babeş-Bolyai/Documents/Github/university/Second Semester/OOP/Lab11/cmake-build-debug/CMakeFiles/CMakeError.log".
