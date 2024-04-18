@@ -1,16 +1,15 @@
 package org.example.utils;
 
-import org.example.IObserver;
-import org.example.IService;
+import org.example.IServices;
 import org.example.protocol.ClientWorker;
 
 import java.net.Socket;
 
 public class ConcurrentServer extends AbstractConcurrentServer{
 
-    IService service;
+    IServices service;
 
-    public ConcurrentServer(int PORT, IService service) {
+    public ConcurrentServer(int PORT, IServices service) {
         super(PORT);
         this.service = service;
         System.out.println("Concurrent server created");

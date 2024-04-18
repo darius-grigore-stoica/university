@@ -224,3 +224,95 @@
 02 Apr 2024 16:21:11,062 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@7a5dabe5)
 02 Apr 2024 16:21:11,062 TRACE org.example.JdbcUtils 46 getConnection - Enter
 02 Apr 2024 16:21:11,062 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@7a5dabe5)
+06 Apr 2024 16:03:23,505 TRACE org.example.implementations.UserDBRepository 22 <init> - Enter Initializing UserRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite}
+06 Apr 2024 16:03:23,510 TRACE org.example.implementations.ChildDBRepository 19 <init> - Enter Initializing ChildDBRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite} 
+06 Apr 2024 16:03:23,513 INFO  org.example.implementations.CompetitionDBRepository 24 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite} 
+06 Apr 2024 16:03:23,515 TRACE org.example.implementations.EnrollmentDBRepository 20 <init> - Enter Initializing EnrollmentRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite}
+06 Apr 2024 16:03:33,670 TRACE org.example.implementations.UserDBRepository 85 getAll - Enter Fetching all users
+06 Apr 2024 16:03:33,671 TRACE org.example.JdbcUtils 46 getConnection - Enter
+06 Apr 2024 16:03:33,671 TRACE org.example.JdbcUtils 23 getNewConnection - Enter
+06 Apr 2024 16:03:33,672 INFO  org.example.JdbcUtils 28 getNewConnection - trying to connect to database ... jdbc:sqlite:database.sqlite
+06 Apr 2024 16:03:33,672 INFO  org.example.JdbcUtils 29 getNewConnection - user: null
+06 Apr 2024 16:03:33,672 INFO  org.example.JdbcUtils 30 getNewConnection - pass: null
+06 Apr 2024 16:03:34,020 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@6e314858)
+06 Apr 2024 16:03:34,031 TRACE org.example.implementations.UserDBRepository 95 getAll - Exit with(User: null admin root )
+06 Apr 2024 16:03:34,032 TRACE org.example.implementations.UserDBRepository 111 login - Enter User found in database with username admin
+06 Apr 2024 16:03:34,124 TRACE org.example.implementations.CompetitionDBRepository 80 getAll - Enter Fetching all competitions
+06 Apr 2024 16:03:34,124 TRACE org.example.JdbcUtils 46 getConnection - Enter
+06 Apr 2024 16:03:34,124 TRACE org.example.JdbcUtils 23 getNewConnection - Enter
+06 Apr 2024 16:03:34,125 INFO  org.example.JdbcUtils 28 getNewConnection - trying to connect to database ... jdbc:sqlite:database.sqlite
+06 Apr 2024 16:03:34,125 INFO  org.example.JdbcUtils 29 getNewConnection - user: null
+06 Apr 2024 16:03:34,125 INFO  org.example.JdbcUtils 30 getNewConnection - pass: null
+06 Apr 2024 16:03:34,128 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4c749dcf)
+06 Apr 2024 16:03:34,133 TRACE org.example.implementations.CompetitionDBRepository 101 getAll - Found competition Competition = (lenght =50, ageGroup = Juniori, competitionID = 6)
+06 Apr 2024 16:03:34,134 TRACE org.example.implementations.CompetitionDBRepository 101 getAll - Found competition Competition = (lenght =20, ageGroup = Seniori, competitionID = 7)
+06 Apr 2024 16:03:34,134 TRACE org.example.implementations.CompetitionDBRepository 101 getAll - Found competition Competition = (lenght =100, ageGroup = Seniori, competitionID = 8)
+06 Apr 2024 16:03:34,134 TRACE org.example.implementations.CompetitionDBRepository 107 getAll - Exit: Found 3 competitions
+06 Apr 2024 16:03:34,135 TRACE org.example.JdbcUtils 46 getConnection - Enter
+06 Apr 2024 16:03:34,135 TRACE org.example.JdbcUtils 23 getNewConnection - Enter
+06 Apr 2024 16:03:34,135 INFO  org.example.JdbcUtils 28 getNewConnection - trying to connect to database ... jdbc:sqlite:database.sqlite
+06 Apr 2024 16:03:34,135 INFO  org.example.JdbcUtils 29 getNewConnection - user: null
+06 Apr 2024 16:03:34,135 INFO  org.example.JdbcUtils 30 getNewConnection - pass: null
+06 Apr 2024 16:03:34,138 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@565b54a7)
+06 Apr 2024 16:03:34,138 TRACE org.example.implementations.EnrollmentDBRepository 89 getAll - Enter Fetching all enrollments
+06 Apr 2024 16:03:49,350 TRACE org.example.JdbcUtils 46 getConnection - Enter
+06 Apr 2024 16:03:49,350 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@565b54a7)
+06 Apr 2024 16:03:49,351 TRACE org.example.JdbcUtils 46 getConnection - Enter
+06 Apr 2024 16:03:49,351 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@565b54a7)
+06 Apr 2024 16:23:26,750 TRACE org.example.implementations.UserDBRepository 22 <init> - Enter Initializing UserRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite}
+06 Apr 2024 16:23:26,755 TRACE org.example.implementations.ChildDBRepository 19 <init> - Enter Initializing ChildDBRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite} 
+06 Apr 2024 16:23:26,758 INFO  org.example.implementations.CompetitionDBRepository 24 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite} 
+06 Apr 2024 16:23:26,760 TRACE org.example.implementations.EnrollmentDBRepository 20 <init> - Enter Initializing EnrollmentRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite}
+06 Apr 2024 16:23:33,274 TRACE org.example.implementations.UserDBRepository 85 getAll - Enter Fetching all users
+06 Apr 2024 16:23:33,275 TRACE org.example.JdbcUtils 46 getConnection - Enter
+06 Apr 2024 16:23:33,275 TRACE org.example.JdbcUtils 23 getNewConnection - Enter
+06 Apr 2024 16:23:33,276 INFO  org.example.JdbcUtils 28 getNewConnection - trying to connect to database ... jdbc:sqlite:database.sqlite
+06 Apr 2024 16:23:33,276 INFO  org.example.JdbcUtils 29 getNewConnection - user: null
+06 Apr 2024 16:23:33,277 INFO  org.example.JdbcUtils 30 getNewConnection - pass: null
+06 Apr 2024 16:23:33,606 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2bd3af71)
+06 Apr 2024 16:23:33,615 TRACE org.example.implementations.UserDBRepository 95 getAll - Exit with(User: null admin root )
+06 Apr 2024 16:23:33,616 TRACE org.example.implementations.UserDBRepository 111 login - Enter User found in database with username admin
+06 Apr 2024 16:23:33,716 TRACE org.example.implementations.CompetitionDBRepository 80 getAll - Enter Fetching all competitions
+06 Apr 2024 16:23:33,717 TRACE org.example.JdbcUtils 46 getConnection - Enter
+06 Apr 2024 16:23:33,717 TRACE org.example.JdbcUtils 23 getNewConnection - Enter
+06 Apr 2024 16:23:33,718 INFO  org.example.JdbcUtils 28 getNewConnection - trying to connect to database ... jdbc:sqlite:database.sqlite
+06 Apr 2024 16:23:33,718 INFO  org.example.JdbcUtils 29 getNewConnection - user: null
+06 Apr 2024 16:23:33,718 INFO  org.example.JdbcUtils 30 getNewConnection - pass: null
+06 Apr 2024 16:23:33,720 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@21b1e166)
+06 Apr 2024 16:23:33,723 TRACE org.example.implementations.CompetitionDBRepository 101 getAll - Found competition Competition = (lenght =50, ageGroup = Juniori, competitionID = 6)
+06 Apr 2024 16:23:33,724 TRACE org.example.implementations.CompetitionDBRepository 101 getAll - Found competition Competition = (lenght =20, ageGroup = Novici, competitionID = 7)
+06 Apr 2024 16:23:33,724 TRACE org.example.implementations.CompetitionDBRepository 101 getAll - Found competition Competition = (lenght =100, ageGroup = Seniori, competitionID = 8)
+06 Apr 2024 16:23:33,724 TRACE org.example.implementations.CompetitionDBRepository 107 getAll - Exit: Found 3 competitions
+06 Apr 2024 16:23:33,725 TRACE org.example.JdbcUtils 46 getConnection - Enter
+06 Apr 2024 16:23:33,725 TRACE org.example.JdbcUtils 23 getNewConnection - Enter
+06 Apr 2024 16:23:33,725 INFO  org.example.JdbcUtils 28 getNewConnection - trying to connect to database ... jdbc:sqlite:database.sqlite
+06 Apr 2024 16:23:33,726 INFO  org.example.JdbcUtils 29 getNewConnection - user: null
+06 Apr 2024 16:23:33,726 INFO  org.example.JdbcUtils 30 getNewConnection - pass: null
+06 Apr 2024 16:23:33,727 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@64f4411c)
+06 Apr 2024 16:23:33,728 TRACE org.example.implementations.EnrollmentDBRepository 89 getAll - Enter Fetching all enrollments
+07 Apr 2024 12:39:21,773 TRACE org.example.implementations.UserDBRepository 22 <init> - Enter Initializing UserRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite}
+07 Apr 2024 12:39:21,778 TRACE org.example.implementations.ChildDBRepository 19 <init> - Enter Initializing ChildDBRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite} 
+07 Apr 2024 12:39:21,780 INFO  org.example.implementations.CompetitionDBRepository 24 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite} 
+07 Apr 2024 12:39:21,781 TRACE org.example.implementations.EnrollmentDBRepository 20 <init> - Enter Initializing EnrollmentRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite}
+07 Apr 2024 12:39:28,773 TRACE org.example.implementations.UserDBRepository 85 getAll - Enter Fetching all users
+07 Apr 2024 12:39:28,774 TRACE org.example.JdbcUtils 46 getConnection - Enter
+07 Apr 2024 12:39:28,774 TRACE org.example.JdbcUtils 23 getNewConnection - Enter
+07 Apr 2024 12:39:28,775 INFO  org.example.JdbcUtils 28 getNewConnection - trying to connect to database ... jdbc:sqlite:database.sqlite
+07 Apr 2024 12:39:28,775 INFO  org.example.JdbcUtils 29 getNewConnection - user: null
+07 Apr 2024 12:39:28,776 INFO  org.example.JdbcUtils 30 getNewConnection - pass: null
+07 Apr 2024 12:39:29,124 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@369f4428)
+07 Apr 2024 12:39:29,132 TRACE org.example.implementations.UserDBRepository 95 getAll - Exit with(User: null admin root )
+07 Apr 2024 12:39:29,133 TRACE org.example.implementations.UserDBRepository 111 login - Enter User found in database with username admin
+07 Apr 2024 13:07:02,064 TRACE org.example.implementations.UserDBRepository 22 <init> - Enter Initializing UserRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite}
+07 Apr 2024 13:07:02,074 TRACE org.example.implementations.ChildDBRepository 19 <init> - Enter Initializing ChildDBRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite} 
+07 Apr 2024 13:07:02,076 INFO  org.example.implementations.CompetitionDBRepository 24 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite} 
+07 Apr 2024 13:07:02,079 TRACE org.example.implementations.EnrollmentDBRepository 20 <init> - Enter Initializing EnrollmentRepository with properties: {jdbc.url=jdbc:sqlite:database.sqlite}
+07 Apr 2024 13:07:11,981 TRACE org.example.implementations.UserDBRepository 85 getAll - Enter Fetching all users
+07 Apr 2024 13:07:11,982 TRACE org.example.JdbcUtils 46 getConnection - Enter
+07 Apr 2024 13:07:11,983 TRACE org.example.JdbcUtils 23 getNewConnection - Enter
+07 Apr 2024 13:07:11,984 INFO  org.example.JdbcUtils 28 getNewConnection - trying to connect to database ... jdbc:sqlite:database.sqlite
+07 Apr 2024 13:07:11,984 INFO  org.example.JdbcUtils 29 getNewConnection - user: null
+07 Apr 2024 13:07:11,985 INFO  org.example.JdbcUtils 30 getNewConnection - pass: null
+07 Apr 2024 13:07:12,308 TRACE org.example.JdbcUtils 55 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4b2015b7)
+07 Apr 2024 13:07:12,317 TRACE org.example.implementations.UserDBRepository 95 getAll - Exit with(User: null admin root )
+07 Apr 2024 13:07:12,318 TRACE org.example.implementations.UserDBRepository 111 login - Enter User found in database with username admin

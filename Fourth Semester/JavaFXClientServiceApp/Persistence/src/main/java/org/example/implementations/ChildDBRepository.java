@@ -2,7 +2,9 @@ package org.example.implementations;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.AgeGroup;
 import org.example.Child;
+import org.example.Competition;
 import org.example.interfaces.IChildRepository;
 import org.example.JdbcUtils;
 
@@ -67,6 +69,35 @@ public class ChildDBRepository implements IChildRepository {
             throw new RuntimeException(e);
         }
         logger.traceExit("Found {} children", children.size());
+        return children;
+    }
+
+    @Override
+    public List<Child> searchByCompetitionAndAgeGroup(Competition competition, AgeGroup ageGroup) {
+        List<Child> children = new ArrayList<>();
+        var conn = jdbcUtils.getConnection();
+        logger.traceEntry("Searching children by competition {} and age group {}", competition, ageGroup);
+        try (var preparedStatement = conn.prepareStatement("select childID, name, age from child " +
+                "join enrollment e on c.childID = e.childID " +
+                "join competition comp on e.competitionID = comp.competitionID " +
+                "where comp.length = ? and c.minAge = ? and c.maxAge = ?")) {
+            preparedStatement.setInt(1, competition.getLenght());
+            preparedStatement.setInt(2, ageGroup.getMinAge());
+            preparedStatement.setInt(3, ageGroup.getMaxAge());
+            var resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                var id = resultSet.getInt("childID");
+                var name = resultSet.getString("name");
+                var age = resultSet.getInt("age");
+                var child = new Child(name, age);
+                child.setEntityID(id);
+                children.add(child);
+                logger.trace("Found child {}", child);
+            }
+        } catch (Exception e) {
+            logger.error(e);
+            throw new RuntimeException(e);
+        }
         return children;
     }
 }

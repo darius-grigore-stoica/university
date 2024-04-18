@@ -1,23 +1,26 @@
 package org.example;
+
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.example.dto.EnrollmentDTO;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
+import java.rmi.ServerException;
 import java.util.ResourceBundle;
 
 
-public class HomeController implements Initializable {
+public class HomeController implements Initializable, IObserver {
     @FXML
     private TextField nameTF;
 
@@ -45,86 +48,151 @@ public class HomeController implements Initializable {
     @FXML
     private Button logoutBtn;
 
-    private Service service;
+    private User crtUser;
 
-    public void setService(Service service) {
-        this.service = service;
+    private IServices server;
+
+    private LoginController controller;
+
+
+    public void setUser(User u) {
+        this.crtUser = u;
     }
 
-    @FXML
-    void enroll(MouseEvent event) {
-        if(nameTF.getText().isEmpty() || ageTF.getText().isEmpty() || probaComboBoxEnroll.getValue() == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Enrollment failed");
-            alert.setContentText("Please fill in all the fields");
-            alert.showAndWait();
-            return;
-        }
-        try {
-            service.enroll(new Child(nameTF.getText(), Integer.parseInt(ageTF.getText())), probaComboBoxEnroll.getValue());
-            enrollmentsListView.setItems(FXCollections.observableArrayList(service.getAllEnrollments()));
-        } catch (InputMismatchException e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Enrollment failed");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Enrollment failed");
-            alert.setContentText("An error occurred while trying to enroll the child");
-            alert.showAndWait();
-        }
+    public HomeController() {
     }
 
-    @FXML
-    void logout(MouseEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/LoginView.fxml"));
-            Parent root = fxmlLoader.load();
-            LoginController loginController = fxmlLoader.getController();
-            loginController.setService(service);
+    public HomeController(IServices server) {
+        this.server = server;
+        initializeFields();
+    }
 
-            Stage stage = (Stage) logoutBtn.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Login");
-            stage.show();
+    public void setServer(IServices server) {
+        this.server = server;
+    }
+
+
+    public void OnLogoutClick(MouseEvent event)  {
+        try {
+            server.logout(crtUser, this);
+        } catch (ServiceException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Logout failed!");
+            alert.showAndWait();
+        }
+        FXMLLoader loader = new FXMLLoader(StartClient.class.getResource("/view/LoginView.fxml"));
+        AnchorPane root = null;
+        try {
+            root = loader.load();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-    }
 
-    @FXML
-    void search(MouseEvent event) {
-        ArrayList<Child> kids = (ArrayList<Child>) service.search(probaComboBoxSearch.getValue(), grupaComboBox.getValue());
-        ObservableList<Child> observableKids = FXCollections.observableArrayList(kids);
-        if (observableKids.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information");
-            alert.setHeaderText("No children found");
-            alert.setContentText("No children found for the selected competition and age group");
-            alert.showAndWait();
-        } else
-            searchChildListView.setItems(observableKids);
+        LoginController loginController = loader.getController();
+        loginController.setServer(server);
+
+        FXMLLoader hloader = new FXMLLoader(StartClient.class.getResource("/view/HomeView.fxml"));
+        AnchorPane hroot = null;
+        try {
+            hroot = hloader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        HomeController homeController = hloader.getController();
+        homeController.setServer(server);
+
+        loginController.setController(homeController);
+        loginController.setMainParent(hroot);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    public void initList() {
-        ArrayList<Competition> competitions = (ArrayList<Competition>) service.getAllCompetitions();
-        ObservableList<Competition> observableCompetitions = FXCollections.observableArrayList(competitions);
+    public void initializeFields() {
+        grupaComboBox.getItems().setAll(AgeGroup.values());
 
-        ArrayList<Enrollment> enrollments = (ArrayList<Enrollment>) service.getAllEnrollments();
-        ObservableList<Enrollment> observableEnrollments = FXCollections.observableArrayList(enrollments);
+        ObservableList<Competition> competitions = null;
+        try {
+            competitions = FXCollections.observableArrayList(server.getAllCompetitions(crtUser, this));
+        } catch (ServiceException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Error getting competitions!");
+            alert.showAndWait();
+        }
+        probaComboBoxEnroll.getItems().setAll(competitions);
+        probaComboBoxSearch.getItems().setAll(competitions);
+        availableCompetitionsListView.getItems().setAll(competitions);
 
-        availableCompetitionsListView.getItems().addAll(observableCompetitions);
-        probaComboBoxEnroll.getItems().addAll(observableCompetitions);
-        probaComboBoxSearch.getItems().addAll(observableCompetitions);
-        enrollmentsListView.getItems().addAll(observableEnrollments);
-        grupaComboBox.getItems().addAll(AgeGroup.values());
+        ObservableList<Enrollment> enrollments = null;
+        try {
+            enrollments = FXCollections.observableArrayList(server.getAllEnrollments(crtUser, this));
+        } catch (ServiceException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Error getting enrollments!");
+            alert.showAndWait();
+        }
+        enrollmentsListView.getItems().setAll(enrollments);
+    }
+
+    public void enroll(MouseEvent event) {
+        Child c = new Child(nameTF.getText(), Integer.parseInt(ageTF.getText()));
+        Competition comp = probaComboBoxEnroll.getSelectionModel().getSelectedItem();
+
+        try {
+            server.enroll(c, comp, this);
+            updateEnrollmentsNotify(new Enrollment(c.getEntityID(), comp.getEntityID()));
+        } catch (ServiceException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Enrollment failed!");
+            alert.showAndWait();
+        }
+    }
+
+    public void search(MouseEvent event) {
+        AgeGroup grupa = grupaComboBox.getSelectionModel().getSelectedItem();
+        Competition comp = probaComboBoxSearch.getSelectionModel().getSelectedItem();
+
+        Child[] children = new Child[0];
+        try {
+            children = server.search(comp, grupa, this);
+            searchChildListView.getItems().addAll(children);
+
+        } catch (ServiceException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Search failed!");
+            alert.showAndWait();
+        }
+
+    }
+
+    @Override
+    public void updateEnrollmentsNotify(Enrollment e) throws ServiceException {
+        Platform.runLater(() -> {
+            try {
+                enrollmentsListView.getItems().setAll(server.getAllEnrollments(crtUser, this));
+            } catch (ServiceException ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error");
+                alert.setContentText("Error getting enrollments!");
+                alert.showAndWait();
+            }
+        });
     }
 }

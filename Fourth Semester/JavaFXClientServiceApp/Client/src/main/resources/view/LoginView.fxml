@@ -4,9 +4,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#OnLoginClick" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.LoginController">
    <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="100.0">
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="100.0">
          <children>
             <TextField fx:id="usernameTF" maxWidth="120.0" prefWidth="120.0" promptText="e.g mihaitPiticu">
                <VBox.margin>
@@ -14,12 +14,12 @@
                </VBox.margin>
             </TextField>
             <PasswordField fx:id="passwordTF" maxWidth="120.0" prefWidth="120.0" promptText="e.g ******" />
-            <Button fx:id="loginBtn" mnemonicParsing="false" onMouseClicked="#login" text="Login">
+            <Button fx:id="loginBtn" mnemonicParsing="false" onMouseClicked="#OnLoginClick" text="Login">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button fx:id="signUpBtn" mnemonicParsing="false" onMouseClicked="#signUp" text="Sign Up">
+            <Button fx:id="signUpBtn" mnemonicParsing="false" text="Sign Up" onMouseClicked="#OnSignUpClick">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

@@ -94,6 +94,7 @@ public class EnrollmentDBRepository implements IEnrollmentRepository {
                 var childID = resultSet.getInt("childID");
                 var competitionID = resultSet.getInt("competitionID");
                 Enrollment enrollment = new Enrollment(childID, competitionID);
+                enrollment.setEntityID(resultSet.getInt("enrollmentID"));
                 enrollments.add(enrollment);
             }
         } catch (Exception e) {
@@ -105,7 +106,7 @@ public class EnrollmentDBRepository implements IEnrollmentRepository {
     @Override
     public void enrollChildToCompetition(Child child, Competition competition) throws InputMismatchException {
         var connection = jdbcUtils.getConnection();
-        if(countEnrollmentsOfChild(child) >= 2)
+        if (countEnrollmentsOfChild(child) >= 2)
             throw new InputMismatchException("Child is already enrolled in 2 competitions");
         try {
             String insertEnrollmentQuery = "INSERT INTO Enrollment (childID, competitionID) " +
@@ -115,6 +116,8 @@ public class EnrollmentDBRepository implements IEnrollmentRepository {
                 preparedStatement.setString(1, child.getName());
                 preparedStatement.setInt(2, child.getAge());
                 preparedStatement.setInt(3, competition.getLenght());
+                preparedStatement.setInt(4, competition.getAgeGroup().getMinAge());
+                preparedStatement.setInt(5, competition.getAgeGroup().getMaxAge());
                 preparedStatement.executeUpdate();
                 logger.trace("Enrolled child {} to competition {}", child.getName(), competition.getLenght());
             }
@@ -143,8 +146,8 @@ public class EnrollmentDBRepository implements IEnrollmentRepository {
         var conn = jdbcUtils.getConnection();
         ArrayList<Child> children = new ArrayList<>();
         logger.traceEntry("searching children by competition and age");
-        try (PreparedStatement preStmt = conn.prepareStatement("select * from child where childID in (select childID from enrollment where competitionID = ?) and age between ? and ?")) {
-            preStmt.setInt(1, competition.getEntityID());
+        try (PreparedStatement preStmt = conn.prepareStatement("select * from child where childID in (select childID from enrollment where competitionID in (select competitionID from competition where length = ?)) and age between ? and ?")) {
+            preStmt.setInt(1, competition.getLenght());
             preStmt.setInt(2, ageGroup.getMinAge());
             preStmt.setInt(3, ageGroup.getMaxAge());
             var resultSet = preStmt.executeQuery();

@@ -16,6 +16,7 @@ dependencies {
     implementation project(':Persistence')
     implementation project(':Services')
     implementation project(':Networking')
+    implementation project(':Server')
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
@@ -26,7 +27,7 @@ javafx {
 }
 
 application {
-    mainClassName = 'org.example.Main'
+    mainClassName = 'org.example.StartClient'
 }
 
 test {

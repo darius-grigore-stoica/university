@@ -86,13 +86,11 @@ public class UserDBRepository implements IUserRepository {
         var conn = jdbcUtils.getConnection();
         ArrayList<User> users = new ArrayList<>();
         try (PreparedStatement preStmt = conn.prepareStatement("select * from user")) {
-            var result = preStmt.executeQuery();
-            while (result.next()) {
-                String username = result.getString("username");
-                String password = result.getString("password");
-                User user = new User(username, password);
-                users.add(user);
-                logger.traceExit(user);
+            var rs = preStmt.executeQuery();
+            while (rs.next()) {
+                User u = new User(rs.getString("username"), rs.getString("password"));
+                u.setEntityID(rs.getInt("userID"));
+                users.add(u);
             }
         } catch (Exception e) {
             logger.error(e);

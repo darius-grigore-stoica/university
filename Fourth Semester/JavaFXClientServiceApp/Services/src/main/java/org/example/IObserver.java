@@ -1,5 +1,6 @@
 package org.example;
 
 public interface IObserver {
-    //TODO DO SOMETHING
+    void updateEnrollmentsNotify(Enrollment e) throws ServiceException;
+
 }

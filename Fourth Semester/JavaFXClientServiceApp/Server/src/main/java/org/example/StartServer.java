@@ -12,24 +12,27 @@ import org.example.implementations.ChildDBRepository;
 import org.example.implementations.CompetitionDBRepository;
 import org.example.implementations.EnrollmentDBRepository;
 import org.example.implementations.UserDBRepository;
+import org.example.utils.AbstractServer;
+import org.example.utils.ConcurrentServer;
 
 
+import java.rmi.ServerException;
 import java.util.Properties;
 
 public class StartServer {
 
     private static final Logger logger = LogManager.getLogger();
-    private static final int PORT = 1234;
+    private static final int PORT = 55556;
 
     public static void main(String[] args) {
-        logger.traceEntry("Starting server on port {}", PORT);
         Properties serverProps = new Properties();
 
-        try{
+        try {
             serverProps.load(StartServer.class.getResourceAsStream("/server.properties"));
-        }catch (Exception e){
+            serverProps.list(System.out);
+        } catch (Exception e) {
             logger.error(e);
-            System.out.println("Error loading server properties "+e);
+            System.out.println("Error loading server properties " + e);
         }
 
         IUserRepository userRepo = new UserDBRepository(serverProps);
@@ -37,31 +40,24 @@ public class StartServer {
         ICompetitionRepository competitionRepo = new CompetitionDBRepository(serverProps);
         IEnrollmentRepository enrollmentRepo = new EnrollmentDBRepository(serverProps);
 
-        IService service = new ServiceImpl(userRepo, childRepo, competitionRepo, enrollmentRepo);
+        IServices service = new ServiceImpl(userRepo, childRepo, competitionRepo, enrollmentRepo);
 
         int serverPort = PORT;
-        try{
+        try {
             serverPort = Integer.parseInt(serverProps.getProperty("server.port"));
-        }catch (NumberFormatException ex){
-            logger.error(ex);
+        } catch (NumberFormatException ex) {
             System.out.println("Server port is invalid. Using default port " + PORT);
         }
 
-        logger.trace("Server started on port {}", serverPort);
-
         AbstractServer server = new ConcurrentServer(serverPort, service);
 
-        try{
+        try {
             server.start();
-        }catch (ServerException e){
-            logger.error(e);
-            System.out.println("Error starting server "+e);
-        }finally {
-            try{
+        } finally {
+            try {
                 server.stop();
-            }catch (ServerException e){
-                logger.error(e);
-                System.out.println("Error stopping server "+e);
+            } catch (ServerException e) {
+                throw new RuntimeException(e);
             }
         }
     }

@@ -8,8 +8,10 @@ import org.example.interfaces.IUserRepository;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-public class ServiceImpl implements IService{
+public class ServiceImpl implements IServices {
 
     private final IUserRepository userRepo;
     private final IChildRepository childRepo;
@@ -17,7 +19,6 @@ public class ServiceImpl implements IService{
     private final IEnrollmentRepository enrollmentRepo;
 
     private Map<String, IObserver> loggedClients;
-
 
     public ServiceImpl(IUserRepository userRepo, IChildRepository childRepo, ICompetitionRepository competitionRepo, IEnrollmentRepository enrollmentRepo) {
         this.userRepo = userRepo;
@@ -27,68 +28,99 @@ public class ServiceImpl implements IService{
         loggedClients = new ConcurrentHashMap<>();
     }
 
-
     @Override
-    public synchronized boolean login(String username, String password) throws ServiceException {
-        boolean valid = userRepo.login(username, password);
-        if(valid) {
-            if(loggedClients.get(username) != null)
+    public synchronized void login(User u, IObserver client) throws ServiceException {
+
+        System.out.println("Login request..." + u.getUsername() + " " + u.getPassword());
+        boolean valid = userRepo.login(u.getUsername(), u.getPassword());
+        if (valid) {
+            if (loggedClients.get(u.getUsername()) != null)
                 throw new ServiceException("User already logged in.");
-            loggedClients.put(username, null);
-            return true;
+            loggedClients.put(u.getUsername(), client);
         } else {
             throw new ServiceException("Authentication failed.");
         }
     }
 
     @Override
-    public void logout(String username) throws ServiceException {
-        IObserver localClient = loggedClients.remove(username);
-        if (localClient == null) {
-            throw new ServiceException("User " + username + " is not logged in.");
-        }
-    }
-
-    @Override
-    public void enroll(Child child, Competition competition) {
-
-    }
-
-    @Override
-    public List<Child> search(Competition competition, AgeGroup ageGroup) {
-        return null;
-    }
-
-    @Override
-    public List<Competition> getAllCompetitions() throws ServiceException {
-        try {
-           return (List<Competition>) competitionRepo.getAll();
-        } catch (Exception e) {
-            throw new ServiceException("Error getting competitions: " + e.getMessage());
-        }
-    }
-
-    @Override
-    public List<Child> getAllChildren() throws ServiceException {
-        try{
-            return (List<Child>) childRepo.getAll();
-        } catch (Exception e) {
-            throw new ServiceException("Error getting children: " + e.getMessage());
-        }
-    }
-
-    @Override
-    public List<Enrollment> getAllEnrollments() throws ServiceException {
-        try {
-            return (List<Enrollment>) enrollmentRepo.getAll();
-        } catch (Exception e) {
-            throw new ServiceException("Error getting enrollments: " + e.getMessage());
-        }
-    }
-
-    public synchronized void logout(String username, IObserver client) throws ServiceException {
-        IObserver localClient = loggedClients.remove(username);
+    public synchronized void logout(User u, IObserver client) throws ServiceException {
+        IObserver localClient = loggedClients.remove(u.getUsername());
         if (localClient == null)
-            throw new ServiceException("User " + username + " is not logged in.");
+            throw new ServiceException("User " + u.getUsername() + " is not logged in.");
+        else System.out.println("Logout request..." + u.getUsername() + " " + u.getPassword());
+    }
+
+    @Override
+    public synchronized void enroll(Child child, Competition competition, IObserver client) throws ServiceException {
+        enrollmentRepo.enrollChildToCompetition(child, competition);
+        notifiyEnrollment(new Enrollment(child.getEntityID(), competition.getEntityID()), client);
+    }
+
+    @Override
+    public synchronized Child[] search(Competition competition, AgeGroup ageGroup, IObserver client) throws ServiceException {
+        try {
+            List<Child> children = (List<Child>) enrollmentRepo.findChildByCompetitionAndAge(competition, ageGroup);
+            Child[] childrenArray = new Child[children.size()];
+            childrenArray = children.toArray(childrenArray);
+            return childrenArray;
+        } catch (Exception e) {
+            throw new ServiceException("Error searching children " + e);
+        }
+    }
+
+    @Override
+    public Competition[] getAllCompetitions(User u, IObserver client) throws ServiceException {
+        try {
+            List<Competition> competitions = (List<Competition>) competitionRepo.getAll();
+            Competition[] competitionsArray = new Competition[competitions.size()];
+            competitionsArray = competitions.toArray(competitionsArray);
+            return competitionsArray;
+        } catch (Exception e) {
+            throw new ServiceException("Error getting competitions " + e);
+        }
+
+    }
+
+    @Override
+    public synchronized Child[] getAllChildren(User u, IObserver client) throws ServiceException {
+        try {
+            List<Child> children = (List<Child>) childRepo.getAll();
+            Child[] childrenArray = new Child[children.size()];
+            childrenArray = children.toArray(childrenArray);
+            return childrenArray;
+        } catch (Exception e) {
+            throw new ServiceException("Error getting children " + e);
+        }
+    }
+
+    @Override
+    public synchronized Enrollment[] getAllEnrollments(User u, IObserver client) throws ServiceException {
+        try {
+            List<Enrollment> enrollments = (List<Enrollment>) enrollmentRepo.getAll();
+            Enrollment[] enrollmentsArray = new Enrollment[enrollments.size()];
+            enrollmentsArray = enrollments.toArray(enrollmentsArray);
+            return enrollmentsArray;
+        } catch (Exception e) {
+            throw new ServiceException("Error getting enrollments " + e);
+        }
+    }
+
+    public void notifiyEnrollment(Enrollment e, IObserver obs) {
+        int defaultNumberOfThreads = 5;
+        ExecutorService executorService = Executors.newFixedThreadPool(defaultNumberOfThreads);
+        for (var c : loggedClients.keySet()) {
+            executorService.execute(() -> {
+                if(loggedClients.get(c) != obs) {
+                    var client = loggedClients.get(c);
+                    try {
+                        client.updateEnrollmentsNotify(e);
+                    } catch (ServiceException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            });
+        }
+        executorService.shutdown();
+
     }
 }
