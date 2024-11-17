@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AnalizatorLexical.iml" filepath="$PROJECT_DIR$/AnalizatorLexical.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AnalizatorLexical.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AnalizatorLexical.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AnalizatorLexical.test.iml" filepath="$PROJECT_DIR$/.idea/modules/AnalizatorLexical.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Formal Languages and Compiler Design.iml" filepath="$PROJECT_DIR$/.idea/Formal Languages and Compiler Design.iml" />
+    </modules>
+  </component>
+</project>
