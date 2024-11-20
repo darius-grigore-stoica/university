@@ -65,7 +65,7 @@ def chinese_remainder(congruences):
 
 
 if __name__ == '__main__':
-    congruences = [(2, 5), (4, 10), (5, 11)]
+    congruences = [(2, 5),  (5, 11)]
     try:
         x = chinese_remainder(congruences)
         print("Solution is:", x)

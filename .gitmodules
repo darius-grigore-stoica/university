@@ -1,0 +1,6 @@
+[submodule "Fourth Semester/mpp-proiect-csharp-darius-grigore-stoica"]
+	path = Fourth Semester/mpp-proiect-csharp-darius-grigore-stoica
+	url = https://github.com/mpp-at-cs-ubbcluj-ro/mpp-proiect-csharp-darius-grigore-stoica.git
+[submodule "Fourth Semester/mpp-proiect-java-darius-grigore-stoica"]
+	path = Fourth Semester/mpp-proiect-java-darius-grigore-stoica
+	url = https://github.com/mpp-at-cs-ubbcluj-ro/mpp-proiect-java-darius-grigore-stoica.git

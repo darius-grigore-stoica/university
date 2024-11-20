@@ -1,8 +1,0 @@
-rootProject.name = 'JavaFXClientServiceApp'
-include 'Model'
-include 'Persistence'
-include 'Client'
-include 'Networking'
-include 'Services'
-include 'Server'
-

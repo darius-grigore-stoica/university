@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e51c1c2-c15d-4278-be3c-83d944c2a495" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a1-darius-grigore-stoica/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a1-darius-grigore-stoica/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/.idea/a2-darius-grigore-stoica.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/UI/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/UI/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/service/Service_Programare.java" beforeDir="false" afterPath="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica/service/Service_Programare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Assembly/h1.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third Semester/Assembly/h1USG.asm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fifth Semester/Computer Networks/lab4/UDP/client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fifth Semester/Computer Networks/lab4/UDP/server.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fifth Semester/LFCT/AnalizatorLexical/src/main/java/org/example/Atom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fifth Semester/LFCT/AnalizatorLexical/src/main/java/org/example/FipElement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fifth Semester/LFCT/AnalizatorLexical/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fifth Semester/LFCT/AnalizatorLexical/src/main/java/org/example/Ts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fifth Semester/LFCT/AnalizatorLexical/src/main/resources/program.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Third Semester/Advanced Methods of Programming/a1-darius-grigore-stoica" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -33,15 +26,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Darius/OneDrive - Universitatea Babeş-Bolyai/Documents/Github/university/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Darius/OneDrive - Universitatea Babeş-Bolyai/Documents/Github/university/Third Semester/Advanced Methods of Programming/a2-darius-grigore-stoica&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -52,6 +45,7 @@
       <updated>1697192650037</updated>
       <workItem from="1697192651268" duration="91000" />
       <workItem from="1698488790455" duration="23000" />
+      <workItem from="1732114297609" duration="160000" />
     </task>
     <servers />
   </component>
