@@ -3,3 +3,4 @@ a,b
 S
 S->aA|b
 A->a|bS
+A->Aa

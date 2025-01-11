@@ -74,12 +74,12 @@ if __name__ == "__main__":
     grammar_file = "regular_grammar.txt"
 
     # Exemplu de creare fișier de configurare pentru gramatică regulată
-    with open(grammar_file, "w") as file:
-        file.write("S,A\n")  # Neterminale
-        file.write("a,b\n")  # Terminale
-        file.write("S\n")  # Simbol de start
-        file.write("S->aA|b\n")  # Producții
-        file.write("A->a|bS\n")
+    # with open(grammar_file, "w") as file:
+    #     file.write("S,A\n")  # Neterminale
+    #     file.write("a,b\n")  # Terminale
+    #     file.write("S\n")  # Simbol de start
+    #     file.write("S->aA|b\n")  # Producții
+    #     file.write("A->a|bS\n")
 
     grammar = RegularGrammar.from_file(grammar_file)
     print(grammar.display_components())
