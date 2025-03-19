@@ -2,11 +2,10 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" inregistrareent="width=device-width, initial-scale=1.0">
-    <title>BuyNow! - Acasă</title>
-    <link rel="stylesheet" href="styles/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyNow! - Favorite</title>
+    <link rel="stylesheet" href="styles/favorite.css">
     <link rel="stylesheet" href="styles/global.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
 </head>
 <body>
     <header>
@@ -41,19 +40,31 @@
     </nav>
 
     <main>
-        <h1>Bine ai venit!</h1>
-        <form id="loginForm">
-            <label for="username">Utilizator:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Parolă:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Conectează-te</button>
-        </form>
-        <p>Nu ai inregistrare? <a href="inregistrare.html">Înregistrează-te</a></p>
+        <h1>Anunțurile Mele Favorite</h1>
+        <div class="anunturi-container">
+            <div class="anunt">
+                <h2>Mașină de Spălat</h2>
+                <p>Mașină de spălat Samsung, 8 kg, stare excelentă.</p>
+                <p>Preț: 800 RON</p>
+                <button>Șterge din Favorite</button>
+            </div>
+            <div class="anunt">
+                <h2>Frigider Bosch</h2>
+                <p>Frigider Bosch, 300L, clasa energetică A++.</p>
+                <p>Preț: 1200 RON</p>
+                <button>Șterge din Favorite</button>
+            </div>
+            <div class="anunt">
+                <h2>PlayStation 5</h2>
+                <p>Console PlayStation 5, nouă, în cutie originală.</p>
+                <p>Preț: 2500 RON</p>
+                <button>Șterge din Favorite</button>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2023 eBay Clone. Toate drepturile rezervate.</p>
+        <p>&copy; 2023 BuyNow!. Toate drepturile rezervate.</p>
     </footer>
 </body>
 </html>

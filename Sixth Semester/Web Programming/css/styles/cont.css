@@ -7,64 +7,71 @@ body {
     min-height: 100vh;
 }
 
-header {
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
-    padding: 10px 20px;
+main {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+}
+
+.cont-options {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 
-.logo img {
-    width: 100px;
-    transition: transform 0.3s ease;
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.logo img:hover {
-    transform: scale(1.1) rotate(10deg);
+.login-form h2 {
+    margin-top: 0;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-main {
-    flex: 1;
-    padding: 20px;
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin-bottom: 5px;
-}
-
-form input, form button {
-    margin-bottom: 10px;
-    padding: 8px;
-    font-size: 16px;
-}
-
-footer {
-    background: #333;
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff7e5f;
+    border: none;
     color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #feb47b;
+}
+
+.register-prompt {
     text-align: center;
-    padding: 10px 0;
-    margin-top: auto;
+}
+
+.register-prompt a {
+    color: #ff7e5f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-prompt a:hover {
+    text-decoration: underline;
 }
