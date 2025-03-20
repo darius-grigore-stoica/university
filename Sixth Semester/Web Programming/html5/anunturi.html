@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BidNow! - Anunțuri</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./anunturi.html" title="View announcements">Anunțuri</a>
+            <a href="./licitati.html">Licitează</a>
+            <a href="./login.html">Login</a>
+            <a href="./signup.html">Sign Up</a>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <section>
+            <h2>Ai un obiect pe care dorești să îl vinzi? Încarcă chiar acum anunțul pentru a primi oferte!</h2>
+            <form action="./anunturi.html">
+                <label for="titlu">Titlu Anunț: </label>
+                <input type="text" id="titlu" maxlength="50"><br>
+                <label for="descriere">Descriere:</label>
+                <textarea id="descriere" name="descriere" cols="30" rows="5"></textarea><br>
+                <label for="pret">Preț:</label>
+                <input type="text" id="pret"><br>
+                <label for="imagine">Imagine: </label>
+                <input type="file" id="imagine"><br>
+                <label for="profit">Înțeleg că platforma BidNow! reține un procent din profitul meu</label>
+                <input type="checkbox" id="profit"><br>
+                <button type="submit">Postează</button>
+            </form>
+        </section>
+        <aside>
+            <h3>Informații suplimentare</h3>
+            <details>
+                <summary>Despre BidNow!</summary>
+                <p>BidNow! este o platformă de licitații online unde poți cumpăra și vinde produse.</p>
+            </details>
+        </aside>
+    </main>
+    <footer>
+        <hr>
+        <h5>Copyright to @StoicaDarius 2025</h5>
+    </footer>
+</body>
+</html>

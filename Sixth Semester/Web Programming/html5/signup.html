@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BidNow! - Sign Up</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./anunturi.html" title="View announcements">Anunțuri</a>
+            <a href="./licitati.html">Licitează</a>
+            <a href="./login.html">Login</a>
+            <a href="./signup.html">Sign Up</a>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <section>
+            <h1>Bun venit pe BidNow!</h1>
+            <h3>Produsele tale favorite sunt disponibile acum!</h3>
+            <p>Lorem ipsum dolor sit, <strong>amet consectetur</strong> adipisicing elit. Labore, iste!</p>
+        </section>
+        <section>
+            <h2>Înregistrează-te!</h2>
+            <form action="./signup.html">
+                <fieldset>
+                    <legend>Sign Up:</legend>
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email"><br>
+                    <label for="password">Parolă:</label>
+                    <input type="password" id="password" name="password"><br>
+                    <label for="confirm-password">Confirmă Parola:</label>
+                    <input type="password" id="confirm-password" name="confirm-password"><br>
+                    <label for="role">Rol:</label>
+                    <select id="role" name="role" multiple size="2">
+                        <option value="seller" selected>Vânzător</option>
+                        <option value="buyer">Cumpărător</option>
+                    </select><br>
+                    <label>Gen:</label>
+                    <input type="radio" id="male" name="gender" value="male"> <label for="male">Bărbat</label>
+                    <input type="radio" id="female" name="gender" value="female"> <label for="female">Femeie</label><br>
+                    <label>Interese:</label>
+                    <input type="checkbox" id="sports" name="interest" value="sports"> <label for="sports">Sport</label>
+                    <input type="checkbox" id="music" name="interest" value="music"> <label for="music">Muzică</label><br>
+                    <button>Sign Up</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <hr>
+        <h5>Copyright to @StoicaDarius 2025</h5>
+    </footer>
+</body>
+</html>

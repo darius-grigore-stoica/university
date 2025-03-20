@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BidNow! - Licitează</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./anunturi.html" title="View announcements">Anunțuri</a>
+            <a href="./licitati.html">Licitează</a>
+            <a href="./login.html">Login</a>
+            <a href="./signup.html">Sign Up</a>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <aside>
+            <h3>Categorii populare</h3>
+            <input list="categories" name="category" id="category">
+            <datalist id="categories">
+                <option value="Autovehicule">
+                <option value="Instrumente Muzicale">
+                <option value="Electronice">
+            </datalist>
+        </aside>
+        <section>
+            <ul>
+                <li><b>Autovehicule</b>
+                    <ol type="I">
+                        <li>Mașini
+                            <ul>
+                                <li><a href="#bmw320i">BMW 320i - 148hp</a></li>
+                            </ul>
+                        </li>
+                        <li>Motoare
+                            <ul>
+                                <li><a href="#motor_yamaha">Yamaha R1</a></li>
+                                <li>Harley Davidson</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+                <li><b>Instrumente Muzicale</b>
+                    <ol type="A">
+                        <li>Chitare
+                            <ul>
+                                <li><a href="#chitara_stratocaster"> Stratocaster </a></li>
+                            </ul>
+                        </li>
+                        <li>Piane
+                            <ul>
+                                <li>Roland Digital Piano</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+                <li><b>Electronice</b>
+                    <ol type="1">
+                        <li>Telefoane
+                            <ul>
+                                <li>iPhone 14 Pro</li>
+                                <li>Samsung Galaxy S22</li>
+                            </ul>
+                    </ol>
+                </li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Produs</th>
+                    <th>Descriere</th>
+                    <th>Oferte</th>
+                </tr>
+                <tr id="bmw320i">
+                    <td>
+                        <figure>
+                            <img src="../anunt-masina.jpg" alt="BMW IMAGE" width="100" height="75">
+                            <figcaption><h4>BMW 320i - 148hp</h4></figcaption>
+                        </figure>
+                    </td>
+                    <td>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates vero ut, ducimus quos deserunt alias in enim. Quod, officiis autem.</p>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <th>Bidder</th>
+                                <th>Ofertă</th>
+                            </tr>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>$7600</td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td>$7700</td>
+                            </tr>
+                        </table>
+                        <button type="submit" name="liciteaza_masina">Licitează</button>
+                    </td>
+                </tr>
+                <tr id="chitara_stratocaster">
+                    <td>
+                        <figure>
+                            <img src="../anunt-chitara.jpg" alt="STRATOCASTER IMAGE" width="100" height="75">
+                            <figcaption><h4>Chitara Stratocaster</h4></figcaption>
+                        </figure>
+                    </td>
+                    <td>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <th>Bidder</th>
+                                <th>Ofertă</th>
+                            </tr>
+                            <tr>
+                                <td>Alice Johnson</td>
+                                <td>$210</td>
+                            </tr>
+                            <tr>
+                                <td>Bob Brown</td>
+                                <td>$220</td>
+                            </tr>
+                        </table>
+                        <button type="submit" name="liciteaza_chitara">Licitează</button>
+                    </td>
+                </tr>
+                <tr id="motor_yamaha">
+                    <td>
+                        <figure>
+                            <img src="../anunt-yamaha.jpg" alt="BMW IMAGE" width="100" height="75">
+                            <figcaption><h4>Motor Yamaha</h4></figcaption>
+                        </figure>
+                    </td>
+                    <td>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <th>Bidder</th>
+                                <th>Ofertă</th>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td>$7700</td>
+                            </tr>
+                        </table>
+                        <button type="submit" name="liciteaza_yamaha">Licitează</button>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <hr>
+        <h5>Copyright to @StoicaDarius 2025</h5>
+    </footer>
+</body>
+</html>
