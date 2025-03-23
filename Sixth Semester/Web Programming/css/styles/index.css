@@ -3,13 +3,17 @@
     flex-direction: column;
     align-items: center;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 100px auto;
 }
 
 .main-image {
     width: 100%;
-    height: auto;
+    height: 400px;
     transition: opacity 0.3s ease;
+    background-image: url("../images/promo_1.jpg");
+    background-size: cover;
+    background-position: center;
+    display: block;
 }
 
 .thumbnails {
@@ -31,21 +35,21 @@
     opacity: 1;
 }
 
-.thumbnails img[data-large]:hover ~ .main-image {
+.thumbnails img:hover ~ .main-image {
     opacity: 0;
 }
 
-.thumbnails img[data-large]:nth-child(1):hover ~ .main-image {
-    content: url('./images/promo_1.jpg');
+.thumbnails img:nth-child(1):hover ~ .main-image {
+    content: url("../images/promo_1.jpg");
     opacity: 1;
 }
 
-.thumbnails img[data-large]:nth-child(2):hover ~ .main-image {
-    content: url('./images/promo_2.jpg');
+.thumbnails img:nth-child(2):hover ~ .main-image {
+    content: url('../images/promo_2.jpg');
     opacity: 1;
 }
 
-.thumbnails img[data-large]:nth-child(3):hover ~ .main-image {
-    content: url('./images/promo_3.jpg');
+.thumbnails img:nth-child(3):hover ~ .main-image {
+    content: url('../images/promo_3.jpg');
     opacity: 1;
 }

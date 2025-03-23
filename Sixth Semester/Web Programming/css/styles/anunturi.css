@@ -23,6 +23,7 @@ main {
     border: 1px solid #ccc;
     padding: 20px;
     width: calc(33.333% - 40px);
+    height: fit-content;
     box-sizing: border-box;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -32,6 +33,14 @@ main {
 .anunt:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.anunt img {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .anunt h2 {

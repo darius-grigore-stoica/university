@@ -42,7 +42,6 @@ header {
     padding: 10px;
 }
 .main-nav ul li:hover {
-    /* margin-left: 20px; */
     background-color: #ff7e5f;
 }
 
