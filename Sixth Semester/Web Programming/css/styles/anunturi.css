@@ -51,3 +51,31 @@ main {
 .anunt button:hover {
     background-color: #feb47b;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    position: relative;
+    padding: 10px;
+    text-align: center;
+}
+
+.info {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+td:hover .info {
+    display: block;
+}

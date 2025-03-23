@@ -42,7 +42,7 @@ header {
     padding: 10px;
 }
 .main-nav ul li:hover {
-    margin-left: 20px;
+    /* margin-left: 20px; */
     background-color: #ff7e5f;
 }
 
@@ -155,4 +155,30 @@ footer {
     text-align: center;
     padding: 10px 0;
     margin-top: auto;
+}
+
+@media (max-width: 787px) {
+    .vertical-menu {
+        display: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    .main-nav {
+        display: block;
+    }
+
+    .main-nav ul li{
+        margin-left: 0;
+        margin-right: 5px;
+        padding: 5px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
 }

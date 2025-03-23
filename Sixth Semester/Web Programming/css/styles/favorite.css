@@ -51,3 +51,9 @@ main {
 .anunt button:hover {
     background-color: #feb47b;
 }
+
+@media (max-width: 787px) {
+    .anunt {
+        width: 100%;
+    }
+}
