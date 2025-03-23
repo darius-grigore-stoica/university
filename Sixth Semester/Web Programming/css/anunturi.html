@@ -41,29 +41,41 @@
     </nav>
 
     <main>
-        <h1>Anunțuri Disponibile</h1>
-        <div class="anunturi-container">
-            <div class="anunt">
-                <img src="./images/bmw_320i.jpg">
-                <h2>Mașină BMW - Model 320i</h2>
-                <p>Mașină marcă BMW model 320i motor pe benzină an 2015</p>
-                <p>Preț curent: 80000 RON</p>
-                <button>Licitează</button>
-            </div>
-            <div class="anunt">
-                <img src="./images/frigider_bosch.jpg">
-                <h2>Frigider Bosch</h2>
-                <p>Frigider Bosch, 300L, clasa energetică A++.</p>
-                <p>Preț curent: 1200 RON</p>
-                <button>Licitează</button>
-            </div>
-            <div class="anunt">
-                <h2>PlayStation 5</h2>
-                <p>Console PlayStation 5, nouă, în cutie originală.</p>
-                <p>Preț curent: 2500 RON</p>
-                <button>Licitează</button>
-            </div>
-        </div>
+        <h1 style="margin-top: 100px;">Anunțuri Disponibile</h1>
+        <table class="anunturi-table">
+            <thead>
+                <tr>
+                    <th>Imagine</th>
+                    <th>Descriere</th>
+                    <th>Detalii</th>
+                    <th>Preț</th>
+                    <th>Acțiune</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="./images/bmw_320i.jpg" alt="BMW 320i" style="width: 100px; height: auto;"></td>
+                        <td>Mașină BMW - Model 320i</td>
+                        <td>Mașină marcă BMW model 320i motor pe benzină an 2015</td>
+                        <td>80000 RON</td>
+                        <td><button>Licitează</button></td>
+                    </tr>
+                    <tr>
+                        <td><img src="./images/frigider_bosch.jpg" alt="Frigider Bosch" style="width: 100px; height: auto;"></td>
+                        <td>Frigider Bosch</td>
+                        <td>Frigider Bosch, 300L, clasa energetică A++</td>
+                        <td>1200 RON</td>
+                        <td><button>Licitează</button></td>
+                    </tr>
+                    <tr>
+                        <td></td> <!-- Empty cell for image if no image is available -->
+                        <td>PlayStation 5</td>
+                        <td>Console PlayStation 5, nouă, în cutie originală</td>
+                        <td>2500 RON</td>
+                        <td><button>Licitează</button></td>
+                    </tr>
+                </tbody>
+        </table>
     </main>
 
     <footer>
