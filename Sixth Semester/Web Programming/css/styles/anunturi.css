@@ -49,3 +49,33 @@ main {
 .anunturi-table button:hover {
     background-color: #feb47b;
 }
+
+ .anunturi-table-td-area {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     border: 0;
+     height: 110px;
+} 
+
+.anunturi-table-button-area-min {
+    display: none;
+}
+
+#th-actiune {
+    display: block;
+}
+
+@media (max-width: 787px) {
+    .anunturi-table-td-area {
+        display: none;
+    }
+
+    .anunturi-table-button-area-min {
+        display: block;
+    }
+
+    #th-actiune {
+        display: none;
+    }
+}
