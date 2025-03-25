@@ -14,7 +14,7 @@
 }
 
 #main-1 {
-    display: none;
+    display: block;
 }
 
 #main-2, #main-3 {
@@ -59,12 +59,7 @@
     display: none;
 }
 
-body {
-    padding: 20px;
-    text-align: center;
-}
-  
- .ryu {
+.ryu {
     width: 435px;
     height: 267px;
     margin-left: -45%;
