@@ -1,11 +1,11 @@
 main {
     display: flex;
     justify-content: center;
+    margin-top: 5rem;
 }
 
 .container {
     position: absolute;
-    top: 80px;
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
@@ -83,4 +83,11 @@ h1 {
 
 .p {
     margin-top: 120px;
-    font-size: 14px;}
+    font-size: 14px;
+}
+
+@media (max-width: 787px) {
+    main {
+            margin-top: 10rem;
+    }
+}

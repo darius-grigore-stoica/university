@@ -8,9 +8,7 @@ body {
 }
 
 main {
-    margin-left: 250px;
-    padding: 20px;
-    flex: 1;
+    margin-top: 5rem;
 }
 
 form {
@@ -42,4 +40,10 @@ form button {
 
 form button:hover {
     background-color: #feb47b;
+}
+
+@media (max-width: 787px) {
+    main {
+        margin-top: 10rem;
+    }
 }

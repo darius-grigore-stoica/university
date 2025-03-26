@@ -14,7 +14,6 @@ header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    height: 60px;
     width: 100%;
 }
 
@@ -69,7 +68,7 @@ header {
     color: white;
     position: fixed;
     padding: 20px 0;
-    top: 80px;
+    top: 90px;
     left: 0;
     bottom: 0;
     overflow-y: visible;
@@ -176,6 +175,10 @@ footer {
 
     .main-nav {
         display: block;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
     }
 
     .main-nav ul li{

@@ -7,16 +7,10 @@ body {
     min-height: 100vh;
 }
 
-main {
-    margin-left: 250px;
-    padding: 20px;
-    flex: 1;
-}
-
 .anunturi-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-right: 20px;
 }
 
 .anunturi-table th, .anunturi-table td {
@@ -77,5 +71,9 @@ main {
 
     #th-actiune {
         display: none;
+    }
+
+    main {
+        margin-top: 5rem;
     }
 }
