@@ -1,0 +1,22 @@
+Scenariu normal privind intrarea in cont a membrului:
+1. Membrul adauga username-ul, parola si apasa butonul de 'Login'
+	2. Sistemul verifica datele introduse si permite accesul membrului, daca este angajat, il marcheaza ca online.
+3. Daca membrul este angajat, vede sarcinile ce trebuiesc indeplinite, iar daca este sef, vede angajatii online si poate asigna sarcini.
+
+Scenariu alternativ:
+1'. Membrul introduce datele de conectare gresit
+	2'. Sistemul in atentioneaza si ii permite o alta incercare
+
+Scenariu normal privind asignarea sarcinilor:
+1. Odata logat in sistem, seful vede lista angajatilor online si apasa pe 'Adauga o sarcina'
+	2. Sistemul porneste o fereastra in care seful poate introduce numele angajatului si descrierea sarcinii
+3. Seful introduce datele si apasa 'Trimite sarcina'
+	4. Angajatul este notificat ca a primit o noua sarcina
+
+Scenariu alternativ:
+3'. Seful introduce gresit datele sau deloc
+	4'. Sistemul in atentioneaza si nu ii permite apsarea butonului 'Trimite sarcina'
+
+Scenariu normal privind vizualizarea sarcinilor asignate:
+1. Odata logat in sistemul, angajatul vede sarcinile asignate lui și le poate marca ca fiind complete
+	2. Sistemul marcheaza sarcina ca fiind complete si notifica seful
