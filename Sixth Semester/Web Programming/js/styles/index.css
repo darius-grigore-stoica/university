@@ -1,0 +1,93 @@
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#main-1, #main-2, #main-3 {
+    width: auto;
+    height: auto;
+    max-width: 400px;
+    transition: opacity 0.3s ease;
+}
+
+#main-1 {
+    display: block;
+}
+
+#main-2, #main-3 {
+    display: none;
+}
+
+.container img[id^="thumbnail-"] {
+    width: 30%;
+    margin: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.container img[id^="thumbnail-"]:hover {
+    opacity: 1;
+}
+
+#thumbnail-1:hover ~ #main-1 {
+    display: block;
+}
+#thumbnail-1:hover ~ #main-2,
+#thumbnail-1:hover ~ #main-3 {
+    display: none;
+}
+
+
+#thumbnail-2:hover ~ #main-2 {
+    display: block;
+}
+#thumbnail-2:hover ~ #main-1,
+#thumbnail-2:hover ~ #main-3 {
+    display: none;
+}
+
+
+#thumbnail-3:hover ~ #main-3 {
+    display: block;
+}
+#thumbnail-3:hover ~ #main-1,
+#thumbnail-3:hover ~ #main-2 {
+    display: none;
+}
+
+.ryu {
+    width: 435px;
+    height: 267px;
+    margin-left: -45%;
+    background:  url('http://bennet.org/images/codepen/ryu-sprite-demo.png') no-repeat 0 0%;
+    animation: sprite 3.5s steps(45) infinite;
+ }
+  
+@keyframes sprite {
+    from { background-position: 0 0%; }
+    to { background-position: 0 100%; }
+}
+
+h1 {
+    font-size: 1.2em;
+}
+
+.p {
+    margin-top: 120px;
+    font-size: 14px;
+}
+
+@media (max-width: 787px) {
+    main {
+            margin-top: 10rem;
+    }
+}

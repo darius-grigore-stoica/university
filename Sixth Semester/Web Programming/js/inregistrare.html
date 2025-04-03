@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyNow! - Înregistrare</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/inregistrare.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Acasă</a></li>
+                <li><a href="favorite.html"><i class="fas fa-heart"></i> Favorite</a></li>
+                <li id="li-anunturi"><a href="anunturi.html"><i class="fas fa-heart"></i> Anunturi</a></li>
+                <li><a href="adauga_anunt.html"><i class="fa-solid fa-arrow-up-from-bracket"></i> Adaugă Anunt</a></li>
+                <li><a href="cont.html"><i class="fa-solid fa-circle-user"></i> Cont</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <nav class="vertical-menu">
+        <h3><a href="anunturi.html">Anunțuri</a></h3>
+        <ul>
+            <li><a href="#">Autovehicule</a></li>
+            <li><a href="#">Electronice</a>
+                <ul class="submenu">
+                    <li><a href="#">Cuptoare & Aragaze</a></li>
+                    <li><a href="#">Mașini de Spălat</a></li>
+                    <li><a href="#">Frigidere și Combine Frigorifice</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Gaming & Carti</a></li>
+            <li><a href="#">Sport & Travel</a></li>
+        </ul>
+        <div class="ryu"></div>
+    </nav>
+
+    <main>
+        <div class="register-container">
+            <div class="register-form">
+                <h1 class="form-title"><i class="fas fa-user-plus"></i> Înregistrare cont nou</h1>
+                
+                <form id="registerForm">
+                    <div class="form-group input-icon">
+                        <label for="username">Nume utilizator:</label>
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="exemplu123">
+                        <div class="requirement" id="username-req">
+                            <i class="far fa-circle"></i> Doar litere mici și cifre
+                        </div>
+                    </div>
+                    
+                    <div class="form-group input-icon">
+                        <label for="email">Adresă email:</label>
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="exemplu@domeniu.com">
+                    </div>
+                    
+                    <div class="form-group input-icon">
+                        <label for="password">Parolă:</label>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Introdu o parolă sigură">
+                        <div class="requirement" id="lower-req">
+                            <i class="far fa-circle"></i> Cel puțin o literă mică
+                        </div>
+                        <div class="requirement" id="upper-req">
+                            <i class="far fa-circle"></i> Cel puțin o literă mare
+                        </div>
+                        <div class="requirement" id="number-req">
+                            <i class="far fa-circle"></i> Cel puțin o cifră
+                        </div>
+                        <div class="requirement" id="special-req">
+                            <i class="far fa-circle"></i> Cel puțin caracterul !
+                        </div>
+                    </div>
+                    
+                    <div class="form-group input-icon">
+                        <label for="confirmPassword">Confirmă parola:</label>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" placeholder="Introdu din nou parola">
+                    </div>
+                    
+                    <div class="form-group input-icon">
+                        <label for="phone">Număr de telefon:</label>
+                        <i class="fas fa-phone"></i>
+                        <input type="text" id="phone" placeholder="(+40) 777 777 777">
+                    </div>
+
+                     <div class="form-group date-group">
+                        <label for="birthDate">Data nașterii:</label>
+
+                        <div class="date-input-container">
+                            <i class="fas fa-calendar-alt"></i>
+                            <input type="text" id="birthDate" placeholder="zz/ll/aaaa">
+                            <div class="date-format-selector">
+                                <label for="dateFormat">Format:</label>
+                                <select id="dateFormat">
+                                    <option value="zz/ll/aaaa">zz/ll/aaaa</option>
+                                    <option value="ll/zz/aaaa">ll/zz/aaaa</option>
+                                    <option value="zz/ll/aa">zz/ll/aa</option>
+                                </select>
+                            </div>  
+                        </div>
+                        <div class="requirement" id="format-req" style="margin-top: 10px;">
+                            <i class="far fa-circle"></i> Format Corect
+                        </div>
+                    </div>
+                    <button type="submit" class="register-btn">
+                        <i class="fas fa-user-plus"></i> Înregistrează-te
+                    </button>
+                    <div class="login-link">
+                        Ai deja cont? <a href="login.html"><i class="fas fa-sign-in-alt"></i> Autentifică-te</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 BuyNow!. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script src="scripts/inregistrare.js"></script>
+</body>
+</html>
