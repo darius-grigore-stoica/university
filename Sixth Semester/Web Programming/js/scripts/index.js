@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const playPauseBtn = document.getElementById('playPauseBtn');
     const loopCheckbox = document.getElementById('loopCheckbox');
     const intervalSelect = document.getElementById('intervalSelect');
+    const prevSlideBtn = document.getElementById('prevBtn');
+    const nextSlideBtn = document.getElementById('nextBtn');
+
     
     let currentSlide = 0;
     let slideInterval;
@@ -29,7 +32,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 restartSlideShow();
             }
         });
+
+        prevSlideBtn.addEventListener('click', prevSlide);
+        nextSlideBtn.addEventListener('click', nextSlide);
     }
+
+    function prevSlide() {
+        let prev = currentSlide - 1;
+        
+        if (prev < 0) {
+            if (loopCheckbox.checked) {
+                prev = slides.length - 1;
+            } else {
+                togglePlayPause();
+                return;
+            }
+        }
+        
+        showSlide(prev);
+        
+        if (isPlaying) {
+            restartSlideShow();
+        }
+    }
+
     
     function showSlide(index) {
         slides.forEach(slide => {
@@ -64,6 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         showSlide(next);
+        
+        if (isPlaying) {
+            restartSlideShow();
+        }
     }
     
     function startSlideShow() {
@@ -92,46 +122,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     initSlider();
-
-    const items = document.querySelectorAll('.progressive-list li');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
-    let intervalTimeList = 3000; // 3 secunde
-    let intervalId;
-
-    function showItem(index) {
-        items.forEach(item => item.classList.remove('active'));
-        
-        items[index].classList.add('active');
-        currentIndex = index;
-    }
-
-    function nextItem() {
-        const nextIndex = (currentIndex + 1) % items.length;
-        showItem(nextIndex);
-    }
-
-    function prevItem() {
-        const prevIndex = (currentIndex - 1 + items.length) % items.length;
-        showItem(prevIndex);
-    }
-
-    function startInterval() {
-        intervalId = setInterval(nextItem, intervalTimeList);
-    }
-
-    nextBtn.addEventListener('click', function() {
-        clearInterval(intervalId);
-        nextItem();
-        startInterval();
-    });
-
-    prevBtn.addEventListener('click', function() {
-        clearInterval(intervalId);
-        prevItem();
-        startInterval();
-    });
-
-    startInterval();
 });
