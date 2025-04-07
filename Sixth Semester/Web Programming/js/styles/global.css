@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     display: flex;
@@ -15,6 +16,23 @@ header {
     align-items: center;
     position: fixed;
     width: 100%;
+    min-height: 50px;
+    z-index: 1000;
+}
+
+main {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    /* margin-top: auto; */
+    min-height: 50px;
 }
 
 .logo img {
@@ -143,20 +161,6 @@ header {
         opacity: 1;
         transform: translateX(0);
     }
-}
-
-main {
-    margin-left: 250px;
-    padding: 20px;
-    flex: 1;
-}
-
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: auto;
 }
 
 @media (max-width: 787px) {

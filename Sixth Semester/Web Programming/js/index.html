@@ -42,45 +42,68 @@
     </nav>
 
     <main>
-        <div class="container">
-            <!-- Slider principal -->
-            <div class="slider">
-                <img id="main-1" src="./images/promo_1.jpg" class="slide fade">
-                <img id="main-2" src="./images/promo_2.jpg" class="slide fade">
-                <img id="main-3" src="./images/promo_3.jpg" class="slide fade">
-            </div>
-            
-            <!-- Thumbnails -->
-            <div class="thumbnails">
-                <img id="thumbnail-1" src="./images/promo_1.jpg" alt="Image 1" data-index="0">
-                <img id="thumbnail-2" src="./images/promo_2.jpg" alt="Image 2" data-index="1">
-                <img id="thumbnail-3" src="./images/promo_3.jpg" alt="Image 3" data-index="2">
-            </div>
-            
-            <!-- Controale slider -->
-            <div class="slider-controls">
-                <button id="playPauseBtn"><i class="fas fa-pause"></i> Pauză</button>
+        <section class="slideshow-section">
+            <div class="container">
+                <div class="slider">
+                    <img id="main-1" src="./images/promo_1.jpg" class="slide fade">
+                    <img id="main-2" src="./images/promo_2.jpg" class="slide fade">
+                    <img id="main-3" src="./images/promo_3.jpg" class="slide fade">
+                </div>
                 
-                <label>
-                    <input type="checkbox" id="loopCheckbox" checked>
-                    Repetă
-                </label>
+                <div class="thumbnails">
+                    <img id="thumbnail-1" src="./images/promo_1.jpg" alt="Image 1" data-index="0">
+                    <img id="thumbnail-2" src="./images/promo_2.jpg" alt="Image 2" data-index="1">
+                    <img id="thumbnail-3" src="./images/promo_3.jpg" alt="Image 3" data-index="2">
+                </div>
                 
-                <label>
-                    Interval (sec):
-                    <select id="intervalSelect">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3"selected>3</option>
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                    </select>
-                </label>
+                <div class="slider-controls">
+                    <button id="playPauseBtn"><i class="fas fa-pause"></i> Pauză</button>
+                    <label>
+                        <input type="checkbox" id="loopCheckbox" checked>
+                        Repetă
+                    </label>
+                    <label>
+                        Interval (sec):
+                        <select id="intervalSelect">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </label>
+                </div>
             </div>
-        </div>
-       
+        </section>
+    
+        <section class="progressive-section">
+            <h2>Featured Items</h2>
+            <div class="progressive-content">
+                <ul class="progressive-list">
+                    <li class="active">
+                        <div class="item-text">This is the first featured item with some description text.</div>
+                        <a href="#" class="read-more">Read more</a>
+                    </li>
+                    <li>
+                        <div class="item-text">Second featured product with different details about it.</div>
+                        <a href="#" class="read-more">Read more</a>
+                    </li>
+                    <li>
+                        <div class="item-text">Third item in our featured collection with special offers.</div>
+                        <a href="#" class="read-more">Read more</a>
+                    </li>
+                    <li>
+                        <div class="item-text">Fourth and final featured product with limited availability.</div>
+                        <a href="#" class="read-more">Read more</a>
+                    </li>
+                </ul>
+                <div class="list-controls">
+                    <button id="prevBtn" class="list-btn"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button id="nextBtn" class="list-btn">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
     </main>
-
     <footer>
         <p>&copy; 2023 eBay Clone. Toate drepturile rezervate.</p>
     </footer>

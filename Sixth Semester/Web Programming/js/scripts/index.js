@@ -93,45 +93,59 @@ document.addEventListener('DOMContentLoaded', function() {
     
     initSlider();
 
-    const items = document.querySelectorAll('.progressive-list li');
+
+    let listIntervalTime = 5000; // 5 seconds
+    const listItems = document.querySelectorAll('.progressive-list li');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
-    let intervalTimeList = 3000; // 3 secunde
-    let intervalId;
-
-    function showItem(index) {
-        items.forEach(item => item.classList.remove('active'));
+    let currentItem = 0;
+    let listInterval;
+    
+    function initProgressiveList() {
+        showListItem(currentItem);
+        startListInterval();
         
-        items[index].classList.add('active');
-        currentIndex = index;
+        nextBtn.addEventListener('click', () => {
+            nextListItem();
+            restartListInterval();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            prevListItem();
+            restartListInterval();
+        });
     }
-
-    function nextItem() {
-        const nextIndex = (currentIndex + 1) % items.length;
-        showItem(nextIndex);
+    
+    function showListItem(index) {
+        listItems.forEach(item => item.classList.remove('active'));
+        listItems[index].classList.add('active');
+        currentItem = index;
     }
-
-    function prevItem() {
-        const prevIndex = (currentIndex - 1 + items.length) % items.length;
-        showItem(prevIndex);
+    
+    function nextListItem() {
+        let next = currentItem + 1;
+        if (next >= listItems.length) {
+            next = 0;
+        }
+        showListItem(next);
     }
-
-    function startInterval() {
-        intervalId = setInterval(nextItem, intervalTimeList);
+    
+    function prevListItem() {
+        let prev = currentItem - 1;
+        if (prev < 0) {
+            prev = listItems.length - 1;
+        }
+        showListItem(prev);
     }
-
-    nextBtn.addEventListener('click', function() {
-        clearInterval(intervalId);
-        nextItem();
-        startInterval();
-    });
-
-    prevBtn.addEventListener('click', function() {
-        clearInterval(intervalId);
-        prevItem();
-        startInterval();
-    });
-
-    startInterval();
+    
+    function startListInterval() {
+        listInterval = setInterval(nextListItem, listIntervalTime);
+    }
+    
+    function restartListInterval() {
+        clearInterval(listInterval);
+        startListInterval();
+    }
+    
+    initProgressiveList();
 });
