@@ -1,0 +1,199 @@
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    min-height: 50px;
+    z-index: 1000;
+}
+
+main {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    /* margin-top: auto; */
+    min-height: 50px;
+}
+
+.logo img {
+    width: 100px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.main-nav ul a{
+    text-decoration: none;
+    color: white;
+}
+.main-nav ul li {
+    margin-right: 30px;
+    padding: 10px;
+}
+.main-nav ul li:hover {
+    background-color: #ff7e5f;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+#li-anunturi {
+    display: none;
+}
+
+.logo { 
+    display: flex;
+    padding: 0;
+    margin: 0;
+    width: 70px;
+    height: 70px;
+}
+
+.vertical-menu {
+    width: 250px;
+    background-color:  #333;
+    color: white;
+    position: fixed;
+    padding: 20px 0;
+    top: 90px;
+    left: 0;
+    bottom: 0;
+    overflow-y: visible;
+    z-index: 100;
+}
+
+.vertical-menu h3 {
+    margin: 10px;
+}
+
+.vertical-menu a {
+    text-decoration: none;
+    color: white;
+}
+
+.vertical-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.vertical-menu ul li {
+    position: relative;
+}
+
+.vertical-menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-left 0.3s ease;
+
+}
+
+.vertical-menu ul li a:hover {
+    background-color: #ff7e5f;
+    border-left: 5px solid #feb47b;
+    animation: highlight 0.5s ease;
+}   
+
+.vertical-menu ul li .submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 200px;
+    background-color: #444;
+    border-left: 3px solid #ff7e5f;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.vertical-menu ul li:hover .submenu {
+    display: block;
+}
+
+.vertical-menu ul li .submenu li {
+    padding: 10px;
+    border-bottom: 1px solid #555;
+}
+
+.vertical-menu ul li .submenu li a {
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 787px) {
+
+    #li-anunturi {
+        display: block;
+    }
+
+    .vertical-menu {
+        display: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    .main-nav {
+        display: block;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+    }
+
+    .main-nav ul li{
+        width: 30px;
+        margin-right: 15px;
+        padding: 15px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+}
