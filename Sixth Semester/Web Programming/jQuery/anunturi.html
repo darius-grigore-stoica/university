@@ -43,7 +43,18 @@
     </nav>
 
     <main>
-        <h1 style="margin-top: 100px;">Anunțuri Disponibile</h1>
+        <div class="header-with-search">
+            <h1>Anunțuri Disponibile</h1>
+            <div class="search-autocomplete">
+                <div class="compact-search-container">
+                    <div class="search-icon-container">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" id="searchInput" placeholder="Caută..." autocomplete="off">
+                </div>
+                <div id="searchSuggestions" class="search-suggestions"></div>
+            </div>
+        </div>
         <table class="anunturi-table sortable">
             <thead>
                 <tr>
@@ -76,10 +87,63 @@
                     <td class="anunturi-table-td-area"><button>Licitează</button></td>
                 </tr>
                 <tr>
-                    <td data-sort="0"></td> <!-- Empty cell for image if no image is available -->
+                    <td data-sort="0">
+                        <img src="./images/playstation5.jpg" alt="iPhone 13" style="width: 100px; height: auto;">
+                        <br><button class="anunturi-table-button-area-min">Licitează</button>
+                    </td>
                     <td>PlayStation 5</td>
                     <td>Console PlayStation 5, nouă, în cutie originală</td>
                     <td data-sort="2500">2500 RON</td>
+                    <td class="anunturi-table-td-area"><button>Licitează</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./images/iphone_13.png" alt="iPhone 13" style="width: 100px; height: auto;">
+                        <br><button class="anunturi-table-button-area-min">Licitează</button>
+                    </td>
+                    <td>iPhone 13 Pro</td>
+                    <td>Telefon iPhone 13 Pro, 128GB, alb, stare perfectă, cu factură și accesorii originale</td>
+                    <td data-sort="2800">2800 RON</td>
+                    <td class="anunturi-table-td-area"><button>Licitează</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./images/samsung_tv.jpg" alt="TV Samsung" style="width: 100px; height: auto;">
+                        <br><button class="anunturi-table-button-area-min">Licitează</button>
+                    </td>
+                    <td>Televizor Samsung QLED</td>
+                    <td>TV Samsung QLED 55", 4K, Smart TV, model QN55Q60AAFXZA, an fabricație 2022</td>
+                    <td data-sort="3200">3200 RON</td>
+                    <td class="anunturi-table-td-area"><button>Licitează</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./images/bicicleta.jpg" alt="Bicicletă" style="width: 100px; height: auto;">
+                        <br><button class="anunturi-table-button-area-min">Licitează</button>
+                    </td>
+                    <td>Bicicletă MTB Rockrider</td>
+                    <td>Bicicletă montană Rockrider ST530, cadru aluminiu 27.5", 21 viteze, aproape nouă</td>
+                    <td data-sort="1200">1200 RON</td>
+                    <td class="anunturi-table-td-area"><button>Licitează</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./images/ceas_rolex.jpeg" alt="Ceas Rolex" style="width: 100px; height: auto;">
+                        <br><button class="anunturi-table-button-area-min">Licitează</button>
+                    </td>
+                    <td>Ceas Rolex Oyster Perpetual</td>
+                    <td>Ceas Rolex Oyster Perpetual 36mm, argintiu, an 2018, cu certificate de autenticitate</td>
+                    <td data-sort="25000">25000 RON</td>
+                    <td class="anunturi-table-td-area"><button>Licitează</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./images/consola_xbox.jpg" alt="Xbox Series X" style="width: 100px; height: auto;">
+                        <br><button class="anunturi-table-button-area-min">Licitează</button>
+                    </td>
+                    <td>Consolă Xbox Series X</td>
+                    <td>Consolă Xbox Series X 1TB, cu 2 manete wireless, în cutie originală, garantie 12 luni</td>
+                    <td data-sort="2200">2200 RON</td>
                     <td class="anunturi-table-td-area"><button>Licitează</button></td>
                 </tr>
             </tbody>
