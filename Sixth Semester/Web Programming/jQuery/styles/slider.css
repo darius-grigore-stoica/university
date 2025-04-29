@@ -1,7 +1,6 @@
-body {
+.slider-section {
     margin: 0;
     font-family: sans-serif;
-    background: #000;
     display: flex;
     flex-direction: column;
     align-items: center;

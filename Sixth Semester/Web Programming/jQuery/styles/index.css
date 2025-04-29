@@ -3,79 +3,6 @@ main {
     flex-direction: column;
     gap: 60px;
 }
-.slideshow-section {
-    max-width: 800px;
-    margin-top: 100px;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.container {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.slider {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.slide {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    display: none;
-}
-
-.slide.fade {
-    animation-name: fade;
-    animation-duration: 1s;
-}
-
-.slide:first-child {
-    display: block;
-}
-
-.thumbnails {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.thumbnails img {
-    width: 30%;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-    border-radius: 3px;
-}
-
-.thumbnails img:hover {
-    opacity: 1;
-}
-
-.slider-controls {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    align-items: center;
-    padding: 10px;
-}
-
-.slider-controls button, 
-.slider-controls label {
-    margin: 5px;
-}
 
 .progressive-section {
     width: 100%;
@@ -171,7 +98,6 @@ main {
         padding-top: 10px;
     }
     
-    .slideshow-section,
     .progressive-section {
         padding: 15px;
         width: 50%;
