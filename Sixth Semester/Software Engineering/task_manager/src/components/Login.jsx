@@ -3,12 +3,44 @@ import React, { useState } from 'react';
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('employee');
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real app, you would validate credentials and call an API
-    onLogin({ username, role });
+    setError('');
+
+    const credentials = {
+      username,
+      password,
+    };
+
+    try {
+      const [employeeRes, bossRes] = await Promise.allSettled([
+        fetch('http://localhost:8080/api/employees/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(credentials),
+        }),
+        fetch('http://localhost:8080/api/boss/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(credentials),
+        }),
+      ]);
+
+      if (employeeRes.status === 'fulfilled' && employeeRes.value.ok) {
+        const data = await employeeRes.value.json();
+        onLogin(data);
+      } else if (bossRes.status === 'fulfilled' && bossRes.value.ok) {
+        const data = await bossRes.value.json();
+        onLogin(data);
+      } else {
+        setError('Invalid credentials.');
+      }
+    } catch (err) {
+      console.error(err);
+      setError('An error occurred while logging in.');
+    }
   };
 
   return (
@@ -33,13 +65,7 @@ const Login = ({ onLogin }) => {
             required
           />
         </div>
-        <div className="form-group">
-          <label>Role:</label>
-          <select value={role} onChange={(e) => setRole(e.target.value)}>
-            <option value="employee">Employee</option>
-            <option value="boss">Boss</option>
-          </select>
-        </div>
+        {error && <div className="error-message">{error}</div>}
         <button type="submit" className="login-button">
           Login
         </button>

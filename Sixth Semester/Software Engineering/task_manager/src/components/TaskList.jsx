@@ -1,31 +1,27 @@
 import React from 'react';
 
 const TaskList = ({ tasks, onTaskComplete }) => {
+  if (tasks.length === 0) return <p>No tasks assigned.</p>;
+
   return (
-    <div className="task-list">
-      {tasks.length === 0 ? (
-        <p>No tasks assigned.</p>
-      ) : (
-        <ul>
-          {tasks.map((task) => (
-            <li key={task.id} className={`task-item ${task.status}`}>
-              <div className="task-info">
-                <h3>{task.description}</h3>
-                <p>Status: {task.status}</p>
-              </div>
-              {task.status === 'pending' && (
-                <button
-                  onClick={() => onTaskComplete(task.id)}
-                  className="complete-button"
-                >
-                  Mark as Completed
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <ul>
+      {tasks.map((task) => (
+        <li key={task.id}>
+          <span
+            style={{
+              textDecoration: task.status === 'completed' ? 'line-through' : 'none',
+            }}
+          >
+            {task.description}
+          </span>
+          {task.status !== 'completed' && (
+            <button onClick={() => onTaskComplete(task.id)} className='complete-button'>
+              Mark as Completed
+            </button>
+          )}
+        </li>
+      ))}
+    </ul>
   );
 };
 

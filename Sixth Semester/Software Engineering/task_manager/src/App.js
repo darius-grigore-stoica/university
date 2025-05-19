@@ -14,9 +14,23 @@ function App() {
     setIsBoss(userData.role === 'boss');
   };
 
-  const handleLogout = () => {
-    setUser(null);
-    setIsBoss(false);
+  const handleLogout = async () => {
+    if (user) {
+      try {
+      const endpoint = user.role === 'boss' ? 'boss' : 'employees';
+
+      await fetch(`http://localhost:8080/api/${endpoint}/logout`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: user.username }),
+      });
+      } catch (error) {
+        console.error('Logout error:', error);
+      }
+  }
+
+  setUser(null);
+  setIsBoss(false);
   };
 
   return (
@@ -25,9 +39,9 @@ function App() {
       {!user ? (
         <Login onLogin={handleLogin} />
       ) : isBoss ? (
-        <BossDashboard />
+        <BossDashboard  bossId={user.id} username={user.username} />
       ) : (
-        <EmployeeDashboard />
+        <EmployeeDashboard employeeId={user.id} username={user.username}/>
       )}
     </div>
   );
