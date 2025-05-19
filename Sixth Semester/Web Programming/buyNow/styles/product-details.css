@@ -1,0 +1,90 @@
+.gauge-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gauge {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.circular-chart {
+    transform: rotate(-90deg);
+}
+
+.circle-bg {
+    stroke: #787878;
+}
+
+.circle {
+    stroke-linecap: round;
+    transform-origin: 50% 50%;
+    transition: stroke 0.5s ease;
+}
+
+.gauge-arrow {
+    position: absolute;
+    width: 15px;
+    height: 100px;
+    background-color: #db2e2e;;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 0%;
+    transform: rotate(90deg);
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease, background-color 0.3s ease;
+}
+
+.gauge-arrow:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 15px solid #4CAF50;
+    transform: translateX(-50%);
+}
+
+.gauge-arrow.green {
+    background-color: #4CAF50;
+}
+
+.gauge-arrow.red {
+    background-color: #db2e2e;
+}
+
+
+
+#current-price, #fair-price {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#user-bid {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+#place-bid {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#place-bid:hover {
+    background-color: #45a049;
+}

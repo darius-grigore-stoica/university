@@ -1,0 +1,113 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.progressive-section {
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.progressive-section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.progressive-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px;
+    min-height: 150px;
+    position: relative;
+}
+
+.progressive-list li {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.progressive-list li.active {
+    position: relative;
+    opacity: 1;
+}
+
+.item-text {
+    margin-bottom: 12px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.read-more {
+    color: #ff7e5f;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.read-more:hover {
+    color: #feb47b;
+    text-decoration: underline;
+}
+
+.list-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.list-btn {
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.list-btn:hover {
+    background-color: #feb47b;
+}
+
+/* Animations */
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    main {
+        gap: 40px;
+        padding-top: 10px;
+    }
+    
+    .progressive-section {
+        padding: 15px;
+        width: 50%;
+    }
+    
+    .progressive-list li {
+        padding: 15px;
+    }
+    
+    .list-btn {
+        padding: 8px 15px;
+    }
+}
